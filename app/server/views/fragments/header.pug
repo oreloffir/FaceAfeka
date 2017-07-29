@@ -1,0 +1,20 @@
+nav.navbar.navbar-inverse
+    .container-fluid
+        .navbar-header
+            button.navbar-toggle(type='button' data-toggle='collapse' data-target='#myNavbar')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+
+        .collapse.navbar-collapse#myNavbar
+            ul.nav.navbar-nav
+                li
+                    a.navbar-brand(href="/") FaceAfeka
+                li
+                    a(href= '/') Home
+                li
+                    a(href= '/profile/'+user.id+'/posts') #{user.displayName}
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href='/logout') Logout
+

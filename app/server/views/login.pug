@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		title= title
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/resources/css/style.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+	body
+		#loginBody.container
+			h2 Login
+			form#loginForm(action='/login', method='POST')
+				.form-group
+					input.form-control(type='email', placeholder='Email', name='email', required)
+				.form-group
+					input.form-control(type='password', placeholder='Password', name='password', required)
+				button#loginbtn.btn.btn-primary(type='submit') Login
+				a.btn.btn-default(href='/signup') Signup
+			if errors
+				each err in errors
+					.alert.alert-danger 
+						strong Error 
+						span= err

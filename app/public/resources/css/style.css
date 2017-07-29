@@ -1,0 +1,29 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.navbar{
+    background-color: #3b5998 !important;
+    border-color: #3b5998 !important;
+    color: #199F00 !important;
+}
+.navbar-toggle{
+    background-color: #3b5998 !important;
+    border-color: #3b5998 !important;
+    color: #199F00 !important;
+}
+#loginBody{
+	max-width: 400px;
+}
+#loginForm{
+	margin-bottom:10px;
+}
+#loginbtn{
+	margin-right: 10px;
+}
+#signupBody{
+	max-width: 400px;
+}
+#signupForm{
+	margin-bottom:10px;
+}
