@@ -1,16 +1,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
-}
-.navbar{
-    background-color: #3b5998 !important;
-    border-color: #3b5998 !important;
-    color: #199F00 !important;
-}
-.navbar-toggle{
-    background-color: #3b5998 !important;
-    border-color: #3b5998 !important;
-    color: #199F00 !important;
+    background-color: #eeeeee !important;
 }
 #loginBody{
 	max-width: 400px;
@@ -26,4 +17,89 @@ body {
 }
 #signupForm{
 	margin-bottom:10px;
+}
+#searchHeader{
+	margin-top: 8px;
+}
+.max-width-1000{
+    max-width: 1000px !important;
+}
+
+/* POSTS */
+.posts{
+    background-color: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 10px !important;
+    margin-bottom: 10px;
+}
+.posts-user-link a{
+    font-weight: bold;
+    color: #1a9f00;
+}
+.posts-user-link a:hover{
+    color: #196b00;
+}
+.posts-date span{
+    color: #777;
+    font-size: 12px;
+}
+.posts-sub-block{
+    width: 100%;
+    float: left;
+}
+.posts-content{
+    margin-top: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.posts-info{
+    color: #777;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.posts-func{
+    color: #777;
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 4px;
+}
+.posts-info-item{
+    margin-right:5px;
+    display: inline;
+}
+.posts-like-btn{
+    padding: 4px;
+}
+.posts-comment{
+    font-size: 13px;
+}
+.posts-comment a{
+    color: #1a9f00;
+    margin-right: 6px;
+}
+.posts-comment a:hover{
+    color: #196b00;
+    text-decoration: none;
+}
+.posts-comment-date{
+    width: 100%;
+    font-size: 10px;
+    color: #777;
+    text-align: right;
+}
+.posts-comments-more{
+    text-align: center;
+    font-size: 12px;
+}
+.posts-comments-more a:hover{
+    text-decoration: none;
+}
+.to-right{
+    float: right;
+}
+.to-left{
+    float: left;
 }

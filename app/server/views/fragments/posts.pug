@@ -1,0 +1,37 @@
+if posts
+    #postsContainer
+    each post in posts
+        .container-fluid.posts
+            .row.posts-sub-block
+                .col-md-2.col-sm-2.col-xs-2
+                    img.img-circle.img-responsive(src='http://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg')
+                .col-md-10.col-sm-10.col-xs-10
+                    .posts-user-link
+                        a(href='/profile/'+post.userId.id) #{post.userId.displayName}
+                    .posts-date
+                        span #{post.timeago(post.date)}
+            .posts-content.posts-sub-block #{post.content}
+            .posts-info.posts-sub-block
+                .posts-info-item.to-left #{post.likes.length} Likes
+                .posts-info-item.to-right
+                    a(href='') #{post.comments.length} Comments
+            .posts-func.posts-sub-block
+                .posts-info-item.to-left
+                    span.glyphicon.glyphicon-heart
+                    span.posts-like-btn Like
+            .posts-comments.posts-sub-block
+
+                if post.comments
+                    each comment in post.comments
+                        .posts-comment.posts-sub-block
+                            a(href='/profile/'+comment.userId.id) #{comment.userId.displayName}
+                            span comment.content
+                            .posts-comment-date #{comment.timeago(comment.date)}
+            .posts-comments-more.posts-sub-block
+                a(href='')
+                    span ···
+                    span  3
+                    span  more ···
+            .posts-add-comment.posts-sub-block
+                form(method='post')
+                    textarea.form-control(name='content', placeholder='Leave a comment')

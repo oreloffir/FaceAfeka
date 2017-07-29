@@ -1,5 +1,6 @@
 module.exports = {
 	//errors
+    err_saving: 'Error in saving',
 	err_user_display_name_short: 'Display name must have at least 5 characters',
 	err_user_display_name_long: 'Display name max lenght is 15 characters',
 	err_user_display_name_empty: 'Display name cannot be empty',
@@ -14,7 +15,8 @@ module.exports = {
 
 	err_login_invalid: 'Invalid email or password',
 
-	//titels
+	//titles
 	title_login: 'FaceAfeka Login',
-	title_signup: 'FaceAfeka Signup'
+	title_signup: 'FaceAfeka Signup',
+	title_main: 'FaceAfeka'
 }

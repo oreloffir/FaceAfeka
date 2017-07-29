@@ -1,0 +1,17 @@
+.container-fluid.posts
+    .row.posts-sub-block
+        .col-md-2.col-sm-2.col-xs-2
+            img.img-circle.img-responsive(src='http://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg')
+        .col-md-10.col-sm-10.col-xs-10
+            .posts-user-link
+                a(href='/profile/') #{user.displayName}
+            .posts-date
+                span just now
+    form#addPostForm(action='posts/add', method='POST')
+        .posts-content.posts-sub-block
+            textarea#newPostContentInput.form-control(name='content', placeholder='Share something with your friends...')
+        .posts-func.posts-sub-block
+            input(type='checkbox', name='privacy')
+            span Private
+            button.btn.btn-primary.posts-info-item.to-right(type='submit') Publish
+    #addPostErrors

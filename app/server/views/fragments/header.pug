@@ -1,5 +1,5 @@
-nav.navbar.navbar-inverse
-    .container-fluid
+nav.navbar.navbar-default
+    .container-fluid.max-width-1000
         .navbar-header
             button.navbar-toggle(type='button' data-toggle='collapse' data-target='#myNavbar')
                 span.icon-bar
@@ -11,10 +11,12 @@ nav.navbar.navbar-inverse
                 li
                     a.navbar-brand(href="/") FaceAfeka
                 li
-                    a(href= '/') Home
-                li
-                    a(href= '/profile/'+user.id+'/posts') #{user.displayName}
+                    input#searchHeader.form-control(type='text', placeholder='Search')
             ul.nav.navbar-nav.navbar-right
                 li
+                    a(href= '/profile') #{user.displayName}
+                li
                     a(href='/logout') Logout
+
+
 

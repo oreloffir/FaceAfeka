@@ -31,23 +31,20 @@ var storageManager = {
 	},
 	getPostsByUser: function(user, callback){
 		postSchema.find({ userId: user._id })
+        .sort({date: -1})
 		.populate('comments')
 		.populate('userId')
+        .populate('likes')
 		.exec(function(err, posts){
 			callback(posts)
 		})
 	},
-	addPost: function(post, callback){
-		userSchema.findOne({ _id: '59778619b9fb8b24e9665412'}).exec(function(err, res){
-			console.log(res)
-			var post 		= new postSchema()
-			post.userId		= res
-			post.content 	= "testing"
-			post.privacy 	= false
-			console.log("add post:\n"+JSON.stringify(post, null, "\t"))
-			post.save(function(err, doc){
-				callback(err, res)
-			})
+	addPost: function(user, postData, callback){
+        postData.userId		= user.id
+		var post 		= new postSchema(postData)
+		console.log("add post:\n"+JSON.stringify(post, null, "\t"))
+		post.save(function(err, doc){
+			callback(err, doc)
 		})
 	},
 	deletePost: function(){
