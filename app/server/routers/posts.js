@@ -51,13 +51,47 @@ router.get('/:id', function(req, res, next){
 
 // add comment
 router.post('/:id/add', function(req, res, next){
-    res.json({status: "ok"});
+    var model = {errors: [] }
+
+    validateCommentInput(req.body, function (errArray) {
+        if(errArray){
+            model.errors = errArray
+            res.json(model)
+        }else{
+            storageManager.addComment(req.session.user, req.body.postid, req.body, function(err, comment){
+                if(err){
+                    model.errors.push(lang.err_saving)
+                    res.json(model)
+                }else{
+                    model.success = true
+                    var resComment = {};
+                    resComment.id          = comment.id
+                    resComment.userId      = req.session.user
+                    resComment.date        = comment.timeago(comment.date)
+                    resComment.content     = comment.content;
+                    console.log(resComment)
+                    model.response      = resComment;
+                    res.json(model)
+                }
+            })
+        }
+    });
 })
 
 var validatePostInput = function (post , callback) {
     var errArray = []
     if(!post.content || post.content.length === 0)
         errArray.push(lang.err_post_content_empty)
+    if(errArray.length > 0)
+        callback(errArray)
+    else
+        callback(null)
+}
+
+var validateCommentInput = function (comment , callback) {
+    var errArray = []
+    if(!comment.content || comment.content.length === 0)
+        errArray.push(lang.err_comment_content_empty)
     if(errArray.length > 0)
         callback(errArray)
     else

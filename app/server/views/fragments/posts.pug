@@ -1,5 +1,5 @@
+#postsContainer
 if posts
-    #postsContainer
     each post in posts
         .container-fluid.posts
             .row.posts-sub-block
@@ -20,12 +20,11 @@ if posts
                     span.glyphicon.glyphicon-heart
                     span.posts-like-btn Like
             .posts-comments.posts-sub-block
-
                 if post.comments
                     each comment in post.comments
                         .posts-comment.posts-sub-block
                             a(href='/profile/'+comment.userId.id) #{comment.userId.displayName}
-                            span comment.content
+                            span #{comment.content}
                             .posts-comment-date #{comment.timeago(comment.date)}
             .posts-comments-more.posts-sub-block
                 a(href='')
@@ -33,5 +32,6 @@ if posts
                     span  3
                     span  more ···
             .posts-add-comment.posts-sub-block
-                form(method='post')
+                form(method='post', action='./posts/'+post.id+'/add', class='addCommentForm')
                     textarea.form-control(name='content', placeholder='Leave a comment')
+                    input(type='hidden', name='postid', value=post.id)

@@ -74,13 +74,25 @@ router.get('/*', function(req, res, next){
         res.redirect('/login')
 })
 
-router.get('/', function(req, res, next){
-    var model = {
-        user: req.session.user,
-        title: lang.title_main,
-        message: 'homepage'
+router.post('/*', function(req, res, next){
+    if(req.session.user){
+        console.log('userOnline!')
+        next()
     }
-    res.render('index', model)
+    else
+        res.redirect('/login')
+})
+
+
+router.get('/', function(req, res, next){
+    storageManager.getPosts({start:0, limit:10}, function (err, posts) {
+        var model = {
+            user: req.session.user,
+            title: lang.title_main,
+            posts: posts
+        }
+        res.render('index', model)
+    })
 })
 
 var validateSignupInput = function(userData, callback){

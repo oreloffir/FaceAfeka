@@ -21,6 +21,25 @@ var storageManager = {
 
 		})
 	},
+    getPosts: function (params, callback) {
+        postSchema.find({}, {comments:{$slice:[0, 10]}})
+            .populate('userId')
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                populate:{
+                    path: 'userId',
+                    model: 'User'
+                }
+            })
+            .populate('likes')
+            .skip(params.start)
+            .sort({date: -1, 'comments.date': -1})
+            .limit(params.limit)
+            .exec(function (err, posts) {
+                callback(err, posts)
+            })
+    },
 	getPostById: function(postId, callback){
 		postSchema.findOne({_id: postId})
 		.populate('comments')
@@ -32,16 +51,23 @@ var storageManager = {
 	getPostsByUser: function(user, callback){
 		postSchema.find({ userId: user._id })
         .sort({date: -1})
-		.populate('comments')
-		.populate('userId')
-        .populate('likes')
-		.exec(function(err, posts){
-			callback(posts)
-		})
+            .populate('userId')
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                populate:{
+                    path: 'userId',
+                    model: 'User'
+                }
+            })
+            .populate('likes')
+		    .exec(function(err, posts){
+			    callback(posts)
+		    })
 	},
 	addPost: function(user, postData, callback){
         postData.userId		= user.id
-		var post 		= new postSchema(postData)
+		var post 			= new postSchema(postData)
 		console.log("add post:\n"+JSON.stringify(post, null, "\t"))
 		post.save(function(err, doc){
 			callback(err, doc)
@@ -50,19 +76,27 @@ var storageManager = {
 	deletePost: function(){
 		console.log("delete post")
 	},
-	addComment: function(postId, content){
-		postSchema.findOne({_id: postId}, function(err, doc){
-			if(err)
-				throw err
-			var comment = new commentSchema();
-			comment.userId = "orel"
-			comment.content = "testing123"
-			comment.save()
-			doc.comments.push(comment);
-			doc.save(function(err, res){
-				callback(err, res)
-			})
-		})
+	addComment: function(user, postId, commentData, callback){
+        commentData.userId = user.id
+		var comment = new commentSchema(commentData)
+        console.log("add comment:\n"+JSON.stringify(comment, null, "\t"))
+        comment.save(function (err, doc) {
+            if(err) {
+                console.log(err);
+                callback(err, doc);
+            }else{
+                postSchema.findByIdAndUpdate(
+                    mongoose.Types.ObjectId(postId),
+                    {$push: {"comments": doc.id}},
+                    {safe: true, upsert: true, new : true},
+                    function(err, model) {
+                        if(err)
+                            console.log(err);
+                        callback(err, doc);
+                    }
+                )
+            }
+        })
 	},
 	addUser: function(userData, callback){
 		var user = new userSchema(userData)
