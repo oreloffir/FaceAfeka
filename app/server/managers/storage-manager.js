@@ -34,9 +34,10 @@ var storageManager = {
             })
             .populate('likes')
             .skip(params.start)
-            .sort({date: -1, 'comments.date': -1})
+            .sort({date: -1})
             .limit(params.limit)
             .exec(function (err, posts) {
+
                 callback(err, posts)
             })
     },

@@ -13,7 +13,8 @@ nav.navbar.navbar-default
                 li
                     input#searchHeader.form-control(type='text', placeholder='Search')
             ul.nav.navbar-nav.navbar-right
-                li
+                li#userInfoNav
+                    img(src='http://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg', class='img img-responsive img-circle')
                     a(href= '/profile') #{user.displayName}
                 li
                     a(href='/logout') Logout

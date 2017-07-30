@@ -15,9 +15,10 @@ router.get('/', function(req, res, next){
                 var model = {
                     title: user.displayName + ' profile',
                     user: req.session.user,
+                    profile: user,
                     posts: posts
                 }
-                res.render('index', model)
+                res.render('profile', model)
             })
         }
     })
@@ -32,9 +33,11 @@ router.get('/:id', function(req, res, next){
                 var model = {
                     title: user.displayName + ' profile',
                     user: req.session.user,
+                    profile: user,
                     posts: posts
                 }
-                res.render('index', model)
+                console.log(user)
+                res.render('profile', model)
             })
         }
     })
