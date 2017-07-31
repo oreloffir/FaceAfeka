@@ -30,7 +30,6 @@ router.post('/signup', uploadManager.uploadProfileImage, function(req, res, next
 			model.errors = errArray
 			res.render('signup', model)
 		}else{
-
 			var userData = req.body;
 			userData.imagePath = req.file.filename;
 			storageManager.addUser(userData, function(err, callback){

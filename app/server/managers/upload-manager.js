@@ -18,7 +18,6 @@ module.exports.uploadProfileImage = multer({
 	}
 }).single('profileImage')
 
-
 module.exports.createProfileImgs = function (file) {
 	console.log(file.filename + ' uploaded to  ' + file.path)
 	// create new img 400X400
