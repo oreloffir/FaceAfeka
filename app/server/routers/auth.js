@@ -35,7 +35,7 @@ router.post('/signup', uploadManager.uploadProfileImage, function(req, res, next
 			storageManager.addUser(userData, function(err, callback){
 				if (err) {
 					console.log('Error Inserting New Data');
-					if (err.name == 'ValidationError')
+					if (err.name === 'ValidationError')
 						for (field in err.errors){
 							model.errors.push(err.errors[field].message)
 						}
@@ -105,7 +105,7 @@ router.get('/logout', function(req, res, next){
     res.redirect('/login')
 })
 
-var validateSignupInput = function(userData, callback){
+var validateSignupInput = function(req, callback){
     var errArray = []
 	var userData = req.body
     if(userData.password.length < 5 || userData.password.length > 15)

@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost/face_afeka')
 
 var storageManager = {
 	login: function(email, password, callback){
-		userSchema.findOne({ email: email })
+		userSchema.findOne({ email: email.toLowerCase() })
 		.exec(function(err, user){
 			if(err)
 				callback(err, null)

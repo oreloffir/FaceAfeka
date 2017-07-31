@@ -14,12 +14,7 @@ html
 
         .container-fluid.max-width-1000
             .row
-                .col-md-3.col-sm-3
-                    .user-info
-                        img.img-circle.img-responsive(src='/images/profile/'+user.imagePath)
-                        .user-details
-                            a(href='/profile/') #{user.displayName}
-                            p #{user.email}
+                .col-md-3.col-sm-3 left
                 .col-md-6.col-sm-6
                     include fragments/addPost.pug
                     include fragments/posts.pug
