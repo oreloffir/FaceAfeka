@@ -1,27 +1,30 @@
 doctype html
 html
-	head
-		title= title
-		meta(charset='utf-8')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		link(rel='stylesheet', href='/resources/css/style.css')
-		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-	body
-		#signupBody.container
-			h2 Signup
-			form#signupForm(action='/signup', method='POST')
-				.form-group
-					input.form-control(type='text', placeholder='Display name', name='displayName', pattern='.{5,15}', required)
-				.form-group
-					input.form-control(type='email', placeholder='Email', name='email', required)
-				.form-group
-					input.form-control(type='password', placeholder='Password', name='password', pattern='.{5,15}', required)
-				button#signupbtn.btn.btn-primary(type='submit') Signup
-				
-			if errors
-				each err in errors
-					.alert.alert-danger 
-						strong Error 
-						span= err
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/resources/css/style.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    body
+        #signupBody.container
+            h2 Signup
+            form#signupForm.form-horizontal(action='/signup', method='POST', enctype="multipart/form-data", role="form")
+                .form-group
+                    input.form-control(type='text', placeholder='Display name', name='displayName', pattern='.{5,15}', required)
+                .form-group
+                    input.form-control(type='email', placeholder='Email', name='email', required)
+                .form-group
+                    input.form-control(type='password', placeholder='Password', name='password', pattern='.{5,15}', required)
+                .form-group
+                    input.form-control(type='file', name='profileImage')
+                button#signupbtn.btn.btn-primary(type='submit') Signup
+
+
+            if errors
+                each err in errors
+                    .alert.alert-danger
+                        strong Error
+                        span= err

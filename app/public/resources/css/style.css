@@ -104,6 +104,21 @@ body {
     float: left;
 }
 
+/* User info */
+.user-details{
+    padding: 10px;
+}
+.user-details a{
+    color: #1a9f00;
+}
+.user-details a:hover{
+    color: #196b00;
+    text-decoration: none;
+}
+.user-details p{
+    color: #1a9f00;
+}
+
 #userInfoNav{
     padding: 5px;
 }

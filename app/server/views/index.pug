@@ -1,25 +1,29 @@
 doctype html
 html
-	head
-		title= title
-		meta(charset='utf-8')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		link(rel='stylesheet', href='/resources/css/style.css')
-		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-		script(src='/resources/js/postController.js')
-	body
-		include fragments/header.pug
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/resources/css/style.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='/resources/js/postController.js')
+    body
+        include fragments/header.pug
 
-		.container-fluid.max-width-1000
-			.row
-				.col-md-3.col-sm-3 left
+        .container-fluid.max-width-1000
+            .row
+                .col-md-3.col-sm-3
+                    .user-info
+                        img.img-circle.img-responsive(src='/images/profile/'+user.imagePath)
+                        .user-details
+                            a(href='/profile/') #{user.displayName}
+                            p #{user.email}
+                .col-md-6.col-sm-6
+                    include fragments/addPost.pug
+                    include fragments/posts.pug
 
-				.col-md-6.col-sm-6
-					include fragments/addPost.pug
-					include fragments/posts.pug
-
-				.col-md-3.col-sm-3 FaceAfeka 2017 (c)
-		script.
-			postController.init();
+                .col-md-3.col-sm-3 FaceAfeka 2017 (c)
+        script.
+            postController.init();

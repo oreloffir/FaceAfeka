@@ -2,6 +2,7 @@ var http 		    = require('http')
 var express 	    = require('express')
 var session 	    = require('express-session')
 var bodyParser 	    = require('body-parser')
+var multer 	        = require('multer')
 // Routes
 var postsRoute 	    = require('./app/server/routers/posts')
 var authRoute       = require('./app/server/routers/auth')
@@ -17,10 +18,13 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(session({secret:'sdaggrdeger645645ydfh5dgfs4'}));
 
+
+
 // Set application routes
 app.use('/', authRoute);
 app.use('/posts', postsRoute);
 app.use('/profile', profileRoute);
+
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

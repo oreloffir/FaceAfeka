@@ -4,34 +4,43 @@ var lang    = require('../lang/en')
 require('../model/Post')
 require('../model/Comment')
 require('../model/User')
-var storageManager = require('../managers/storage-manager')
+var storageManager  = require('../managers/storage-manager')
+var uploadManager   = require('../managers/upload-manager')
+
+//router.use(uploadManager.uploadProfileImage)
 
 router.get('/signup', function(req, res, next){
     res.render('signup', {title: lang.title_signup})
 })
 
-router.post('/signup', function(req, res, next){
-    var model = { title: lang.title_signup, errors: [] }
-    validateSignupInput(req.body, function(errArray){
-        if(errArray){
-            model.errors = errArray
-            res.render('signup', model)
-        }else{
-            storageManager.addUser(req.body, function(err, callback){
-                if (err) {
-                    console.log('Error Inserting New Data');
-                    if (err.name == 'ValidationError')
-                        for (field in err.errors){
-                            model.errors.push(err.errors[field].message)
-                        }
-                    res.render('signup', model)
-                }else{
-                    console.log("new user registered")
-                    res.redirect('/login')
-                }
-            })
-        }
-    })
+router.post('/signup', uploadManager.uploadProfileImage, function(req, res, next){
+	uploadManager.createProfileImgs(req.file)
+	var model = { title: lang.title_signup, errors: [] }
+	validateSignupInput(req, function(errArray , req){
+		if(errArray){
+			model.errors = errArray
+			res.render('signup', model)
+		}else{
+
+			var userData = req.body;
+			userData.imagePath = req.file.filename;
+			storageManager.addUser(userData, function(err, callback){
+				if (err) {
+					console.log('Error Inserting New Data');
+					if (err.name == 'ValidationError')
+						for (field in err.errors){
+							model.errors.push(err.errors[field].message)
+						}
+					res.render('signup', model)
+				}else{
+					console.log("new user registered")
+					res.redirect('/login')
+				}
+			})
+		}
+	})
+
+
 })
 
 router.get('/login', function(req, res, next){
@@ -49,7 +58,9 @@ router.post('/login', function(req, res, next){
         if(user){
             req.session.user = {
                 id: user._id,
-                displayName: user.displayName
+                displayName: user.displayName,
+                email: user.email,
+	            imagePath: user.imagePath
             }
             console.log("session user "+ req.session.user.displayName);
 
@@ -95,8 +106,9 @@ router.get('/', function(req, res, next){
     })
 })
 
-var validateSignupInput = function(userData, callback){
+var validateSignupInput = function(req, callback){
     var errArray = []
+	var userData = req.body
     if(userData.password.length < 5 || userData.password.length > 15)
         errArray.push(lang.err_user_password_invalid)
     if(userData.displayName.length < 5)
@@ -109,9 +121,9 @@ var validateSignupInput = function(userData, callback){
         errArray.push(lang.err_user_email_invalid)
 
     if(errArray.length > 0)
-        callback(errArray)
+        callback(errArray , req)
     else
-        callback(null)
+        callback(null , req)
 }
 
 module.exports = router
