@@ -2,7 +2,7 @@ var mongoose   		= require('mongoose')
 var postSchema 		= mongoose.model('Post')
 var commentSchema 	= mongoose.model('Comment')
 var userSchema 		= mongoose.model('User')
-
+var commentsPerPage = 3;
 mongoose.connect('mongodb://localhost/face_afeka')
 
 var storageManager = {
@@ -22,7 +22,7 @@ var storageManager = {
 		})
 	},
     getPosts: function(query, params, callback) {
-        postSchema.find(query, {comments:{$slice:[0, 10]}})
+        postSchema.find(query)
             .populate('userId')
             .populate({
                 path: 'comments',
@@ -41,11 +41,28 @@ var storageManager = {
             })
     },
 	getPostById: function(postId, callback){
-		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {start:0, limit:1}, callback)
+		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {skip:0, limit:1}, callback)
 	},
 	getPostsByUser: function(userId, callback){
-        this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {start:0, limit:10}, callback)
+        this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {skip:0, limit:10}, callback)
 	},
+	getCommentsPost: function (postId, page, callback) {
+	    console.log("page: "+page)
+        console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
+		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                options: {sort:{'date': -1}, skip:commentsPerPage * page, limit: commentsPerPage},
+                populate:{
+                    path: 'userId',
+                    model: 'User'
+                }
+            })
+            .exec(function (err, posts) {
+            	callback(err, posts[0].comments)
+            })
+    },
 	addPost: function(user, postData, callback){
         postData.userId		= user.id
 		var post 			= new postSchema(postData)

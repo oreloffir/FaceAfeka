@@ -20,5 +20,6 @@ module.exports = {
 	title_signup: 'FaceAfeka Signup',
 	title_main: 'FaceAfeka',
 
-    err_like: 'Like action failed'
+    err_like: 'Like action failed',
+    err_load_comments: 'Load more comments action failed'
 }

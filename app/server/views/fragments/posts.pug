@@ -28,16 +28,17 @@ if posts
                         span.posts-like-btn Like
             .posts-comments.posts-sub-block
                 if post.comments
-                    each comment in post.comments
+                    each comment in post.comments.slice(0, 3)
                         .posts-comment.posts-sub-block
                             a(href='/profile/'+comment.userId.id) #{comment.userId.displayName}
                             span #{comment.content}
                             .posts-comment-date #{comment.timeago(comment.date)}
-            .posts-comments-more.posts-sub-block
-                a(href='')
-                    span ···
-                    span  3
-                    span  more ···
+            if (post.comments.length - 3) > 0
+                .posts-comments-more.posts-sub-block
+                    a.load-more-comments(href='', data-postid=post.id, data-pagenum='0')
+                        span ···
+                        span.posts-comments-load-more-left #{post.comments.length - 3}
+                        span  more ··
             .posts-add-comment.posts-sub-block
                 form(method='post', action='./posts/'+post.id+'/add', class='addCommentForm')
                     textarea.form-control(name='content', placeholder='Leave a comment')

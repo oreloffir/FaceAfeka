@@ -36,7 +36,7 @@ router.post('/add', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-    storageManager.getPostById(req.params.id, function(post){
+    storageManager.getPostById(req.params.id, function(err, post){
         var model = {
             user: {
                 id: req.session.user.id,
@@ -48,6 +48,22 @@ router.get('/:id', function(req, res, next){
         res.render('index', model)
     })
 })
+
+router.get('/:id/comments/:page', function(req, res, next){
+    var model = {errors: [] }
+    storageManager.getCommentsPost(req.params.id, parseInt(req.params.page), function(err, comments){
+        if(err){
+            model.errors.push(lang.err_load_comments)
+            model.success = false
+        }
+        else{
+            model.success = true
+            model.res     = comments
+        }
+        res.json(model);
+    });
+})
+
 
 // add comment
 router.post('/:id/add', function(req, res, next){
