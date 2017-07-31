@@ -21,12 +21,13 @@ var storageManager = {
 
 		})
 	},
-    getPosts: function (params, callback) {
-        postSchema.find({}, {comments:{$slice:[0, 10]}})
+    getPosts: function(query, params,  callback) {
+        postSchema.find(query, {comments:{$slice:[0, 10]}})
             .populate('userId')
             .populate({
                 path: 'comments',
                 model: 'Comment',
+                options: {sort:{'date': -1}},
                 populate:{
                     path: 'userId',
                     model: 'User'
@@ -37,34 +38,14 @@ var storageManager = {
             .sort({date: -1})
             .limit(params.limit)
             .exec(function (err, posts) {
-
                 callback(err, posts)
             })
     },
 	getPostById: function(postId, callback){
-		postSchema.findOne({_id: postId})
-		.populate('comments')
-		.populate('userId')
-		.exec(function(err, post){
-			callback(post)
-		})
+		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {start:0, limit:1}, callback)
 	},
-	getPostsByUser: function(user, callback){
-		postSchema.find({ userId: user._id })
-        .sort({date: -1})
-            .populate('userId')
-            .populate({
-                path: 'comments',
-                model: 'Comment',
-                populate:{
-                    path: 'userId',
-                    model: 'User'
-                }
-            })
-            .populate('likes')
-		    .exec(function(err, posts){
-			    callback(posts)
-		    })
+	getPostsByUser: function(userId, callback){
+        this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {start:0, limit:10}, callback)
 	},
 	addPost: function(user, postData, callback){
         postData.userId		= user.id
@@ -104,7 +85,7 @@ var storageManager = {
 		user.setPassword(userData.password)
 		user.save(function(err,res){
 			callback(err, res)
-		}) 
+		})
 	},
 	getUser: function(userId, callback){
 		userSchema.findOne({ _id: userId })

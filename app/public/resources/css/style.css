@@ -120,3 +120,11 @@ body {
 .profile_left_info{
     padding-top:20px;
 }
+
+#leftProfile{
+    position: fixed;
+    top: 70px;
+}
+#leftProfile img{
+    max-width: 230px;
+}

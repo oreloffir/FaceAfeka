@@ -11,7 +11,7 @@ router.get('/', function(req, res, next){
         if(err || user === null){
             res.redirect('/')
         }else{
-            storageManager.getPostsByUser(user, function(posts){
+            storageManager.getPostsByUser(user.id.toString(), function(err, posts){
                 var model = {
                     title: user.displayName + ' profile',
                     user: req.session.user,
@@ -29,7 +29,8 @@ router.get('/:id', function(req, res, next){
         if(err || user === null){
             res.redirect('/')
         }else{
-            storageManager.getPostsByUser(user, function(posts){
+            storageManager.getPostsByUser(user.id.toString(), function(err, posts){
+                if(err) throw err
                 var model = {
                     title: user.displayName + ' profile',
                     user: req.session.user,

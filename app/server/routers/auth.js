@@ -6,6 +6,15 @@ require('../model/Comment')
 require('../model/User')
 var storageManager = require('../managers/storage-manager')
 
+var isAuth = function(req, res, next){
+    if(req.session.user){
+        console.log('userOnline!')
+        next()
+    }
+    else
+        res.redirect('/login')
+}
+
 router.get('/signup', function(req, res, next){
     res.render('signup', {title: lang.title_signup})
 })
@@ -20,7 +29,7 @@ router.post('/signup', function(req, res, next){
             storageManager.addUser(req.body, function(err, callback){
                 if (err) {
                     console.log('Error Inserting New Data');
-                    if (err.name == 'ValidationError')
+                    if (err.name === 'ValidationError')
                         for (field in err.errors){
                             model.errors.push(err.errors[field].message)
                         }
@@ -38,10 +47,6 @@ router.get('/login', function(req, res, next){
     res.render('login', {title: lang.title_login})
 })
 
-router.get('/logout', function(req, res, next){
-    req.session.destroy()
-    res.redirect('/login')
-})
 
 router.post('/login', function(req, res, next){
     console.log('post request for login')
@@ -65,27 +70,17 @@ router.post('/login', function(req, res, next){
     })
 })
 
-router.get('/*', function(req, res, next){
-    if(req.session.user){
-        console.log('userOnline!')
-        next()
-    }
-    else
-        res.redirect('/login')
+router.get('/*', isAuth, function(req, res, next){
+    next()
 })
 
-router.post('/*', function(req, res, next){
-    if(req.session.user){
-        console.log('userOnline!')
-        next()
-    }
-    else
-        res.redirect('/login')
+router.post('/*', isAuth, function(req, res, next){
+    next()
 })
 
 
 router.get('/', function(req, res, next){
-    storageManager.getPosts({start:0, limit:10}, function (err, posts) {
+    storageManager.getPosts({}, {start:0, limit:10}, function (err, posts) {
         var model = {
             user: req.session.user,
             title: lang.title_main,
@@ -93,6 +88,11 @@ router.get('/', function(req, res, next){
         }
         res.render('index', model)
     })
+})
+
+router.get('/logout', function(req, res, next){
+    req.session.destroy()
+    res.redirect('/login')
 })
 
 var validateSignupInput = function(userData, callback){
