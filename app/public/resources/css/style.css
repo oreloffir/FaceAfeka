@@ -110,22 +110,9 @@ body {
 .to-left{
     float: left;
 }
-
-/* User info */
-.user-details{
-    padding: 10px;
+.posts-comments-btn{
+    color: #337ab7;
 }
-.user-details a{
-    color: #1a9f00;
-}
-.user-details a:hover{
-    color: #196b00;
-    text-decoration: none;
-}
-.user-details p{
-    color: #1a9f00;
-}
-
 #userInfoNav{
     padding: 5px;
 }

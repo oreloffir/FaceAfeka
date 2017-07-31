@@ -6,7 +6,7 @@ var postController = {
         this.addCommentsForms           = $('.addCommentForm');
         this.postsLikeBtns              = $('.posts-func-like');
         this.postsCommentsLoadMoreBtns  = $('.load-more-comments');
-        this.commentsPerLoad            = 3;
+        this.postsCommentsBtns          = $('.posts-comments-btn')
         this.bindEvent();
     },
     bindEvent: function(){
@@ -122,7 +122,7 @@ var postController = {
                 if(callback.success && callback.res.length > 0) {
                     $(callback.res).each(function (index, comment) {
                         var commentElement = self.createCommentElement(comment);
-                        commentElement.prependTo(outputBlock).hide().fadeIn(700);
+                        commentElement.appendTo(outputBlock).hide().fadeIn(700);
                     })
                     var left = parseInt(leftDiv.html()) - callback.res.length;
                     if(left > 0)

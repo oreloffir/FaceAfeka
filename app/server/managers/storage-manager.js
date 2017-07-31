@@ -50,17 +50,31 @@ var storageManager = {
 	    console.log("page: "+page)
         console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
 		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
-            .populate({
+            .populate(
+                {
                 path: 'comments',
                 model: 'Comment',
-                options: {sort:{'date': -1}, skip:commentsPerPage * page, limit: commentsPerPage},
+                options: {skip:commentsPerPage * page, limit: commentsPerPage, sort:{'date': -1}},
                 populate:{
                     path: 'userId',
                     model: 'User'
                 }
             })
             .exec(function (err, posts) {
-            	callback(err, posts[0].comments)
+
+                var comments = posts[0].comments;
+            	comments.forEach(function (comment, idx) {
+            	    var c = {}
+            	    c.id        = comment.id
+                    c.userId    = comment.userId
+                    c.content   = comment.content
+                    c.date      = comment.date
+                    c.date      = comment.timeago(comment.date)
+                    comments[idx] = c
+                    //console.log()
+                })
+				console.log(JSON.stringify(comments, null, "\t"))
+                callback(err, comments)
             })
     },
 	addPost: function(user, postData, callback){
