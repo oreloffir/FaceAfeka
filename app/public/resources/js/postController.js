@@ -4,6 +4,7 @@ var postController = {
         this.addPostErrors      = $('#addPostErrors');
         this.postsContainer     = $('#postsContainer');
         this.addCommentsForms   = $('.addCommentForm');
+        this.postsLikeBtns      = $('.posts-func-like');
         this.bindEvent();
     },
     bindEvent: function(){
@@ -17,6 +18,9 @@ var postController = {
                     $(this).closest("form").submit();
                 }
             })
+        })
+        $(this.postsLikeBtns).each(function (index, likeBtm) {
+            $(likeBtm).on('click', self.likePost);
         })
     },
     addPost: function (e) {
@@ -66,6 +70,28 @@ var postController = {
                     console.log(callback);
                     var commentElement = self.createCommentElement(callback.response);
                     commentElement.prependTo(outputBlock).hide().fadeIn(700);
+                }
+            },
+            error: function (callback) {
+                console.log(callback);
+            }
+        });
+    },
+    likePost: function (e) {
+        var postId      = $(this).attr('data-postid');
+        var likeBtn     = $(this);
+        var likeCount   = $(this).parents('.posts').find('.posts-likes-count');
+        $.ajax({
+            url: '/posts/'+postId+'/like',
+            type: 'GET',
+            dataType: "JSON",
+            success: function(callback){
+                if(callback.success) {
+                    likeBtn.toggleClass('like');
+                    if(callback.res)
+                        likeCount.html(parseInt(likeCount.html()) + 1)
+                    else
+                        likeCount.html(parseInt(likeCount.html()) - 1)
                 }
             },
             error: function (callback) {

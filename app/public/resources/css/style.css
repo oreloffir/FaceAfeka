@@ -66,6 +66,13 @@ body {
     padding-top: 7px;
     padding-bottom: 4px;
 }
+.like{
+    color: #1a9f00;
+}
+.posts-func-like{
+    float:left;
+    cursor: pointer;
+}
 .posts-info-item{
     margin-right:5px;
     display: inline;

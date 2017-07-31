@@ -12,12 +12,20 @@ if posts
                         span #{post.timeago(post.date)}
             .posts-content.posts-sub-block #{post.content}
             .posts-info.posts-sub-block
-                .posts-info-item.to-left #{post.likes.length} Likes
+                .posts-info-item.to-left
+                    span.posts-likes-count #{post.likes.length}
+                    span  Likes
                 .posts-info-item.to-right
                     a(href='') #{post.comments.length} Comments
             .posts-func.posts-sub-block
-                    span.glyphicon.glyphicon-heart
-                    span.posts-like-btn Like
+                - if (post.likes.indexOf(user.id) > -1)
+                    .posts-func-like.like(data-postid=post.id)
+                        span.glyphicon.glyphicon-heart
+                        span.posts-like-btn Like
+                - else
+                    .posts-func-like(data-postid=post.id)
+                        span.glyphicon.glyphicon-heart
+                        span.posts-like-btn Like
             .posts-comments.posts-sub-block
                 if post.comments
                     each comment in post.comments

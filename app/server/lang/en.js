@@ -18,5 +18,7 @@ module.exports = {
 	//titles
 	title_login: 'FaceAfeka Login',
 	title_signup: 'FaceAfeka Signup',
-	title_main: 'FaceAfeka'
+	title_main: 'FaceAfeka',
+
+    err_like: 'Like action failed'
 }

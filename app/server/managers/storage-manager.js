@@ -21,7 +21,7 @@ var storageManager = {
 
 		})
 	},
-    getPosts: function(query, params,  callback) {
+    getPosts: function(query, params, callback) {
         postSchema.find(query, {comments:{$slice:[0, 10]}})
             .populate('userId')
             .populate({
@@ -33,7 +33,6 @@ var storageManager = {
                     model: 'User'
                 }
             })
-            .populate('likes')
             .skip(params.start)
             .sort({date: -1})
             .limit(params.limit)
@@ -55,6 +54,27 @@ var storageManager = {
 			callback(err, doc)
 		})
 	},
+	likePost: function (user, postId, callback) {
+        this.getPosts({ _id: mongoose.Types.ObjectId(postId), likes: user.id }, {start: 0, limit: 1}, function (err, post) {
+        	var action;
+        	var like;
+            if (post.length > 0){
+				action 	= {$pull: {"likes": user.id}}
+                like = false
+			}else{
+                action = {$push: {"likes": user.id}}
+                like = true
+            }
+            postSchema.findByIdAndUpdate(
+                mongoose.Types.ObjectId(postId),
+                action,
+                {safe: true, upsert: true, new : true},
+                function(err, doc) {
+                    callback(err, like);
+                }
+            )
+        })
+    },
 	deletePost: function(){
 		console.log("delete post")
 	},
