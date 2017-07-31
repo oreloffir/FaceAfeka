@@ -9,6 +9,15 @@ var uploadManager   = require('../managers/upload-manager')
 
 //router.use(uploadManager.uploadProfileImage)
 
+var isAuth = function(req, res, next){
+    if(req.session.user){
+        console.log('userOnline!')
+        next()
+    }
+    else
+        res.redirect('/login')
+}
+
 router.get('/signup', function(req, res, next){
     res.render('signup', {title: lang.title_signup})
 })
@@ -47,10 +56,6 @@ router.get('/login', function(req, res, next){
     res.render('login', {title: lang.title_login})
 })
 
-router.get('/logout', function(req, res, next){
-    req.session.destroy()
-    res.redirect('/login')
-})
 
 router.post('/login', function(req, res, next){
     console.log('post request for login')
@@ -76,27 +81,17 @@ router.post('/login', function(req, res, next){
     })
 })
 
-router.get('/*', function(req, res, next){
-    if(req.session.user){
-        console.log('userOnline!')
-        next()
-    }
-    else
-        res.redirect('/login')
+router.get('/*', isAuth, function(req, res, next){
+    next()
 })
 
-router.post('/*', function(req, res, next){
-    if(req.session.user){
-        console.log('userOnline!')
-        next()
-    }
-    else
-        res.redirect('/login')
+router.post('/*', isAuth, function(req, res, next){
+    next()
 })
 
 
 router.get('/', function(req, res, next){
-    storageManager.getPosts({start:0, limit:10}, function (err, posts) {
+    storageManager.getPosts({}, {start:0, limit:10}, function (err, posts) {
         var model = {
             user: req.session.user,
             title: lang.title_main,
@@ -106,7 +101,12 @@ router.get('/', function(req, res, next){
     })
 })
 
-var validateSignupInput = function(req, callback){
+router.get('/logout', function(req, res, next){
+    req.session.destroy()
+    res.redirect('/login')
+})
+
+var validateSignupInput = function(userData, callback){
     var errArray = []
 	var userData = req.body
     if(userData.password.length < 5 || userData.password.length > 15)

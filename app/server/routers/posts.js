@@ -16,10 +16,10 @@ router.post('/add', function(req, res, next){
             storageManager.addPost(req.session.user, req.body, function(err, post){
                 if(err){
                     model.errors.push(lang.err_saving)
-                    res.json(model)
+                    model.success = false
                 }else{
                     model.success = true
-                    var resPost = {};
+                    var resPost = {}
                     resPost.id          = post.id
                     resPost.userId      = req.session.user
                     resPost.date        = post.timeago(post.date)
@@ -28,15 +28,15 @@ router.post('/add', function(req, res, next){
                     resPost.content     = post.content;
                     console.log(resPost)
                     model.response      = resPost;
-                    res.json(model)
                 }
+                res.json(model)
             })
         }
     })
 })
 
 router.get('/:id', function(req, res, next){
-    storageManager.getPostById(req.params.id, function(post){
+    storageManager.getPostById(req.params.id, function(err, post){
         var model = {
             user: {
                 id: req.session.user.id,
@@ -48,6 +48,22 @@ router.get('/:id', function(req, res, next){
         res.render('index', model)
     })
 })
+
+router.get('/:id/comments/:page', function(req, res, next){
+    var model = {errors: [] }
+    storageManager.getCommentsPost(req.params.id, parseInt(req.params.page), function(err, comments){
+        if(err){
+            model.errors.push(lang.err_load_comments)
+            model.success = false
+        }
+        else{
+            model.success = true
+            model.res     = comments
+        }
+        res.json(model);
+    });
+})
+
 
 // add comment
 router.post('/:id/add', function(req, res, next){
@@ -61,20 +77,36 @@ router.post('/:id/add', function(req, res, next){
             storageManager.addComment(req.session.user, req.body.postid, req.body, function(err, comment){
                 if(err){
                     model.errors.push(lang.err_saving)
-                    res.json(model)
+                    model.success = false
                 }else{
                     model.success = true
-                    var resComment = {};
-                    resComment.id          = comment.id
-                    resComment.userId      = req.session.user
-                    resComment.date        = comment.timeago(comment.date)
-                    resComment.content     = comment.content;
+                    var resComment = {}
+                    resComment.id           = comment.id
+                    resComment.userId       = req.session.user
+                    resComment.date         = comment.timeago(comment.date)
+                    resComment.content      = comment.content;
                     console.log(resComment)
-                    model.response      = resComment;
-                    res.json(model)
+                    model.response          = resComment;
                 }
+                res.json(model)
             })
         }
+    });
+})
+
+// add like
+router.get('/:id/like', function(req, res, next){
+    var model = {errors: [] }
+    storageManager.likePost(req.session.user, req.params.id, function(err, like){
+        if(err){
+            model.errors.push(lang.err_like)
+            model.success = false
+        }
+        else{
+            model.success = true
+            model.res     = like
+        }
+        res.json(model);
     });
 })
 

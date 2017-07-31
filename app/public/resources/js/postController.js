@@ -1,9 +1,12 @@
 var postController = {
     init: function () {
-        this.addPostForm        = $('#addPostForm');
-        this.addPostErrors      = $('#addPostErrors');
-        this.postsContainer     = $('#postsContainer');
-        this.addCommentsForms   = $('.addCommentForm');
+        this.addPostForm                = $('#addPostForm');
+        this.addPostErrors              = $('#addPostErrors');
+        this.postsContainer             = $('#postsContainer');
+        this.addCommentsForms           = $('.addCommentForm');
+        this.postsLikeBtns              = $('.posts-func-like');
+        this.postsCommentsLoadMoreBtns  = $('.load-more-comments');
+        this.commentsPerLoad            = 3;
         this.bindEvent();
     },
     bindEvent: function(){
@@ -17,6 +20,12 @@ var postController = {
                     $(this).closest("form").submit();
                 }
             })
+        })
+        $(this.postsLikeBtns).each(function (index, likeBtm) {
+            $(likeBtm).on('click', self.likePost);
+        })
+        $(this.postsCommentsLoadMoreBtns).each(function (index, loadBtn) {
+            $(loadBtn).on('click', self.loadMoreComments);
         })
     },
     addPost: function (e) {
@@ -49,7 +58,7 @@ var postController = {
     addComment: function (e) {
         e.preventDefault();
         var self = postController;
-        var dataString = $(this).serialize();
+        var dataString  = $(this).serialize();
         var outputBlock = $(this).parents('.posts').find('.posts-comments');
         $(this).find("[name='content']").val("");
         console.log(dataString);
@@ -66,6 +75,60 @@ var postController = {
                     console.log(callback);
                     var commentElement = self.createCommentElement(callback.response);
                     commentElement.prependTo(outputBlock).hide().fadeIn(700);
+                }
+            },
+            error: function (callback) {
+                console.log(callback);
+            }
+        });
+    },
+    likePost: function (e) {
+        var postId      = $(this).attr('data-postid');
+        var likeBtn     = $(this);
+        var likeCount   = $(this).parents('.posts').find('.posts-likes-count');
+        $.ajax({
+            url: '/posts/'+postId+'/like',
+            type: 'GET',
+            dataType: "JSON",
+            success: function(callback){
+                if(callback.success) {
+                    likeBtn.toggleClass('like');
+                    if(callback.res)
+                        likeCount.html(parseInt(likeCount.html()) + 1)
+                    else
+                        likeCount.html(parseInt(likeCount.html()) - 1)
+                }
+            },
+            error: function (callback) {
+                console.log(callback);
+            }
+        });
+    },
+    loadMoreComments: function (e) {
+        e.preventDefault();
+        var self        = postController;
+        var loadBtn     = $(this);
+        var leftDiv     = $(this).parents('.posts').find('.posts-comments-load-more-left');
+        var pageNumber  = parseInt($(this).attr('data-pagenum'));
+        var postId      = $(this).attr('data-postid');
+        var outputBlock = $(this).parents('.posts').find('.posts-comments');
+        $(this).attr('data-pagenum', (pageNumber+1));
+        $.ajax({
+            url: '/posts/'+postId+'/comments/'+(pageNumber+1),
+            type: 'GET',
+            dataType: "JSON",
+            success: function(callback){
+                console.log(callback);
+                if(callback.success && callback.res.length > 0) {
+                    $(callback.res).each(function (index, comment) {
+                        var commentElement = self.createCommentElement(comment);
+                        commentElement.prependTo(outputBlock).hide().fadeIn(700);
+                    })
+                    var left = parseInt(leftDiv.html()) - callback.res.length;
+                    if(left > 0)
+                        leftDiv.html(left);
+                    else
+                        leftDiv.parent().hide();
                 }
             },
             error: function (callback) {

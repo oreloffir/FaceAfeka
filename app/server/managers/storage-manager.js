@@ -2,7 +2,7 @@ var mongoose   		= require('mongoose')
 var postSchema 		= mongoose.model('Post')
 var commentSchema 	= mongoose.model('Comment')
 var userSchema 		= mongoose.model('User')
-
+var commentsPerPage = 3;
 mongoose.connect('mongodb://localhost/face_afeka')
 
 var storageManager = {
@@ -21,51 +21,48 @@ var storageManager = {
 
 		})
 	},
-    getPosts: function (params, callback) {
-        postSchema.find({}, {comments:{$slice:[0, 10]}})
+    getPosts: function(query, params, callback) {
+        postSchema.find(query)
             .populate('userId')
             .populate({
                 path: 'comments',
                 model: 'Comment',
+                options: {sort:{'date': -1}},
                 populate:{
                     path: 'userId',
                     model: 'User'
                 }
             })
-            .populate('likes')
             .skip(params.start)
             .sort({date: -1})
             .limit(params.limit)
             .exec(function (err, posts) {
-
                 callback(err, posts)
             })
     },
 	getPostById: function(postId, callback){
-		postSchema.findOne({_id: postId})
-		.populate('comments')
-		.populate('userId')
-		.exec(function(err, post){
-			callback(post)
-		})
+		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {skip:0, limit:1}, callback)
 	},
-	getPostsByUser: function(user, callback){
-		postSchema.find({ userId: user._id })
-        .sort({date: -1})
-            .populate('userId')
+	getPostsByUser: function(userId, callback){
+        this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {skip:0, limit:10}, callback)
+	},
+	getCommentsPost: function (postId, page, callback) {
+	    console.log("page: "+page)
+        console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
+		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
             .populate({
                 path: 'comments',
                 model: 'Comment',
+                options: {sort:{'date': -1}, skip:commentsPerPage * page, limit: commentsPerPage},
                 populate:{
                     path: 'userId',
                     model: 'User'
                 }
             })
-            .populate('likes')
-		    .exec(function(err, posts){
-			    callback(posts)
-		    })
-	},
+            .exec(function (err, posts) {
+            	callback(err, posts[0].comments)
+            })
+    },
 	addPost: function(user, postData, callback){
         postData.userId		= user.id
 		var post 			= new postSchema(postData)
@@ -74,6 +71,27 @@ var storageManager = {
 			callback(err, doc)
 		})
 	},
+	likePost: function (user, postId, callback) {
+        this.getPosts({ _id: mongoose.Types.ObjectId(postId), likes: user.id }, {start: 0, limit: 1}, function (err, post) {
+        	var action;
+        	var like;
+            if (post.length > 0){
+				action 	= {$pull: {"likes": user.id}}
+                like = false
+			}else{
+                action = {$push: {"likes": user.id}}
+                like = true
+            }
+            postSchema.findByIdAndUpdate(
+                mongoose.Types.ObjectId(postId),
+                action,
+                {safe: true, upsert: true, new : true},
+                function(err, doc) {
+                    callback(err, like);
+                }
+            )
+        })
+    },
 	deletePost: function(){
 		console.log("delete post")
 	},
@@ -104,7 +122,7 @@ var storageManager = {
 		user.setPassword(userData.password)
 		user.save(function(err,res){
 			callback(err, res)
-		}) 
+		})
 	},
 	getUser: function(userId, callback){
 		userSchema.findOne({ _id: userId })
