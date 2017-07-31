@@ -110,7 +110,9 @@ body {
 .to-left{
     float: left;
 }
-
+.posts-comments-btn{
+    color: #337ab7;
+}
 #userInfoNav{
     padding: 5px;
 }

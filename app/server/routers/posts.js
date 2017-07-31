@@ -59,6 +59,7 @@ router.get('/:id/comments/:page', function(req, res, next){
         else{
             model.success = true
             model.res     = comments
+
         }
         res.json(model);
     });
