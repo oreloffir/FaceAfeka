@@ -3,6 +3,19 @@ body {
 	padding: 0px;
     background-color: #eeeeee !important;
 }
+pre{
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #fff !important;
+    font-size: 13px !important;
+    font-family: arial !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: none !important;
+}
+.navbar-inverse{
+    background-color: #323232 !important;
+}
 #loginBody{
 	max-width: 400px;
 }
@@ -127,7 +140,19 @@ body {
 }
 
 .profile_left_info{
-    padding-top:20px;
+    margin-top:20px;
+    padding-left: 10px;
+    border-left: 1px solid #AAAAAA;
+}
+
+.btn-green{
+     background-color: #1a9f00;
+     color: #fff;
+}
+
+.btn-green:hover{
+    background-color: #196b00;
+    color: #fff !important;
 }
 
 #leftProfile{

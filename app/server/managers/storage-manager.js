@@ -138,12 +138,42 @@ var storageManager = {
 			callback(err, res)
 		})
 	},
-	getUser: function(userId, callback){
-		userSchema.findOne({ _id: userId })
-		.exec(function(err, user){
-			callback(err, user)
-		})
-	}
+    getUser: function(query, callback){
+        userSchema.find(query)
+            .exec(function(err, users){
+                callback(err, users[0])
+            })
+    },
+    getUserById: function(userId, callback){
+        this.getUser({_id: mongoose.Types.ObjectId(userId)}, function (err, user) {
+            callback(err, user)
+        })
+    },
+    addFriend: function (userId, friendId, callback) {
+	    var query = { _id: mongoose.Types.ObjectId(userId), friends: mongoose.Types.ObjectId(friendId)}
+	    this.getUser(query, function (err, user) {
+            console.log(JSON.stringify(user, null, "\t"))
+            var action
+            var friend = {}
+            if (user){
+                action 	= {$pull: {"friends": mongoose.Types.ObjectId(friendId)}}
+                friend.isFriend = false
+            }else{
+                action = {$push: {"friends": mongoose.Types.ObjectId(friendId)}}
+                friend.isFriend = true
+            }
+            userSchema.findByIdAndUpdate(
+                mongoose.Types.ObjectId(userId),
+                action,
+                {safe: true, upsert: true, new : true},
+                function(err, doc) {
+                    friend.id = mongoose.Types.ObjectId(friendId);
+                    callback(err, friend);
+                }
+            )
+        })
+    }
+
 }
 
 module.exports = storageManager;

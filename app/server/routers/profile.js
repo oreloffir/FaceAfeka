@@ -7,7 +7,7 @@ require('../model/User')
 var storageManager = require('../managers/storage-manager')
 
 router.get('/', function(req, res, next){
-    storageManager.getUser(req.session.user.id, function(err, user){
+    storageManager.getUserById(req.session.user.id, function(err, user){
         if(err || user === null){
             res.redirect('/')
         }else{
@@ -25,11 +25,11 @@ router.get('/', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-    storageManager.getUser(req.params.id, function(err, user){
+    storageManager.getUserById(req.params.id, function(err, user){
         if(err || user === null){
             res.redirect('/')
         }else{
-            storageManager.getPostsByUser(user.id.toString(), function(err, posts){
+            storageManager.getPostsByUser(user._id.toString(), function(err, posts){
                 if(err) throw err
                 var model = {
                     title: user.displayName + ' profile',
@@ -37,12 +37,31 @@ router.get('/:id', function(req, res, next){
                     profile: user,
                     posts: posts
                 }
-                console.log(user)
+                console.log(req.session.user)
                 res.render('profile', model)
             })
         }
     })
 })
 
+router.get('/:id/add', function(req, res, next){
+    storageManager.addFriend(req.session.user.id, req.params.id, function(err, friend){
+        var model = {errors: []}
+
+        if(err){
+            model.errors.push(lang.err_saving)
+            model.success = false
+        }else{
+            if(friend.isFriend)
+                req.session.user.friends.push(friend.id)
+            else
+                req.session.user.friends.pop(friend.id)
+            console.log(JSON.stringify(req.session.user, null, "\t"))
+            model.success = true
+            model.res     = friend
+        }
+        res.json(model)
+    })
+})
 
 module.exports = router

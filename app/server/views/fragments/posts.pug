@@ -4,13 +4,14 @@ if posts
         .container-fluid.posts
             .row.posts-sub-block
                 .col-md-2.col-sm-2.col-xs-2
-                    img.img-circle.img-responsive(src='http://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg')
+                    img.img.img-responsive.img-circle(src='/images/profile/tmb_'+post.userId.imagePath)
                 .col-md-10.col-sm-10.col-xs-10
                     .posts-user-link
                         a(href='/profile/'+post.userId.id) #{post.userId.displayName}
                     .posts-date
                         span #{post.timeago(post.date)}
-            .posts-content.posts-sub-block #{post.content}
+            .posts-content.posts-sub-block
+                pre #{post.content}
             .posts-info.posts-sub-block
                 .posts-info-item.to-left
                     span.posts-likes-count #{post.likes.length}

@@ -64,7 +64,8 @@ router.post('/login', function(req, res, next){
                 id: user._id,
                 displayName: user.displayName,
                 email: user.email,
-	            imagePath: user.imagePath
+	            imagePath: user.imagePath,
+                friends: user.friends
             }
             console.log("session user "+ req.session.user.displayName);
 
@@ -90,7 +91,7 @@ router.post('/*', isAuth, function(req, res, next){
 
 
 router.get('/', function(req, res, next){
-    storageManager.getPosts({}, {start:0, limit:10}, function (err, posts) {
+    storageManager.getPosts({userId: {$in: req.session.user.friends}}, {start:0, limit:10}, function (err, posts) {
         var model = {
             user: req.session.user,
             title: lang.title_main,
