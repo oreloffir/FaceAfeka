@@ -36,16 +36,49 @@ router.post('/add', function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-    storageManager.getPostById(req.params.id, function(err, post){
+    storageManager.getPostById(req.params.id, function(err, posts){
         var model = {
-            user: {
-                id: req.session.user.id,
-                displayName: req.session.user.displayName
-            },
-            title: 'Hey',
-            message: post
+            user: req.session.user,
+            title: lang.title_main,
+            posts: posts,
+            showAddPost: false
         }
         res.render('index', model)
+    })
+})
+
+router.delete('/:id', function(req, res, next){
+    var model = { errors: [] }
+    storageManager.deletePost(req.params.id, function (err) {
+        if(err)
+            model.errors.push(lang.err_saving)
+        else{
+            model.success = true
+            res.json(model)
+        }
+    })
+})
+
+router.post('/:id/edit', function(req, res, next){
+    var model = { errors: [] }
+
+    validateEditPostInput(req.body.content, function (errArray) {
+        if (errArray) {
+            model.errors = errArray
+            res.json(model)
+        } else {
+            var update = {content: req.body.content, privacy: req.body.privacy}
+            storageManager.updatePost(req.params.id, update, function(err, post){
+                if(err){
+                    model.errors.push(lang.err_saving)
+                    model.success = false
+                }else{
+                    model.response  = post
+                    model.success   = true
+                }
+                res.json(model)
+            })
+        }
     })
 })
 
@@ -57,14 +90,13 @@ router.get('/:id/comments/:page', function(req, res, next){
             model.success = false
         }
         else{
-            model.success = true
-            model.res     = comments
+            model.success   = true
+            model.response  = comments
 
         }
         res.json(model);
     });
 })
-
 
 // add comment
 router.post('/:id/add', function(req, res, next){
@@ -104,8 +136,8 @@ router.get('/:id/like', function(req, res, next){
             model.success = false
         }
         else{
-            model.success = true
-            model.res     = like
+            model.success   = true
+            model.response  = like
         }
         res.json(model);
     });
@@ -123,8 +155,18 @@ var validatePostInput = function (post , callback) {
 
 var validateCommentInput = function (comment , callback) {
     var errArray = []
-    if(!comment.content || comment.content.length === 0)
+    if(comment.content.trim().length === 0)
         errArray.push(lang.err_comment_content_empty)
+    if(errArray.length > 0)
+        callback(errArray)
+    else
+        callback(null)
+}
+
+var validateEditPostInput = function (content, callback) {
+    var errArray = []
+    if(content.trim().length === 0)
+        errArray.push(lang.err_post_content_empty)
     if(errArray.length > 0)
         callback(errArray)
     else

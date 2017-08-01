@@ -9,6 +9,8 @@ module.exports = {
 	err_user_email_invalid: 'Invalid email',
 	err_value_taken: '{VALUE} is already taken',
 
+    err_ext_content_empty: 'External content cannot be empty',
+
 	err_comment_content_empty: 'Comment content cannot be empty',
 
 	err_post_content_empty: 'Post content cannot be empty',

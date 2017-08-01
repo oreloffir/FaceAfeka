@@ -9,16 +9,20 @@ html
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='/resources/js/postController.js')
+        script(src='/resources/js/utilitiesControllers.js')
     body
         include fragments/header.pug
 
         .container-fluid.max-width-1000
             .row
-                .col-md-3.col-sm-3 left
-                .col-md-6.col-sm-6
-                    include fragments/addPost.pug
+                #leftSide.col-md-3.col-sm-3 left
+                #postsContainer.col-md-6.col-sm-6
+                    if showAddPost
+                        include fragments/addPost.pug
                     include fragments/posts.pug
 
                 .col-md-3.col-sm-3 FaceAfeka 2017 (c)
+        include fragments/imageModal.pug
         script.
             postController.init();
+            imageDialog.init();

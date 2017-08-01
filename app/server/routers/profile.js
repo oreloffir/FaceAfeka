@@ -15,6 +15,7 @@ router.get('/', function(req, res, next){
                 var model = {
                     title: user.displayName + ' profile',
                     user: req.session.user,
+                    friends: user.friends,
                     profile: user,
                     posts: posts
                 }
@@ -29,36 +30,34 @@ router.get('/:id', function(req, res, next){
         if(err || user === null){
             res.redirect('/')
         }else{
-            storageManager.getPostsByUser(user._id.toString(), function(err, posts){
-                if(err) throw err
-                var model = {
-                    title: user.displayName + ' profile',
-                    user: req.session.user,
-                    profile: user,
-                    posts: posts
-                }
-                console.log(req.session.user)
-                res.render('profile', model)
+            storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
+                storageManager.getPostsByUser(user._id.toString(), function(err, posts){
+                    if(err) throw err
+                    if(!friends) friends = []
+                    var model = {
+                        title: user.displayName + ' profile',
+                        user: req.session.user,
+                        friends: friends,
+                        profile: user,
+                        posts: posts
+                    }
+                    res.render('profile', model)
+                })
             })
         }
     })
 })
 
 router.get('/:id/add', function(req, res, next){
-    storageManager.addFriend(req.session.user.id, req.params.id, function(err, friend){
+    storageManager.addFriend(req.session.user.id, req.params.id, function(err, user){
         var model = {errors: []}
 
         if(err){
             model.errors.push(lang.err_saving)
             model.success = false
         }else{
-            if(friend.isFriend)
-                req.session.user.friends.push(friend.id)
-            else
-                req.session.user.friends.pop(friend.id)
-            console.log(JSON.stringify(req.session.user, null, "\t"))
             model.success = true
-            model.res     = friend
+            model.res     = user.isFriend
         }
         res.json(model)
     })

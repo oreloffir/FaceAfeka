@@ -3,6 +3,13 @@ var express 	    = require('express')
 var session 	    = require('express-session')
 var bodyParser 	    = require('body-parser')
 var multer 	        = require('multer')
+
+// Mongo schemas
+require('./app/server/model/Post')
+require('./app/server/model/Comment')
+require('./app/server/model/User')
+require('./app/server/model/ExtContent')
+
 // Routes
 var postsRoute 	    = require('./app/server/routers/posts')
 var authRoute       = require('./app/server/routers/auth')

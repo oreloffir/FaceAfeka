@@ -1,12 +1,8 @@
 var express = require('express')
 var router  = express.Router()
 var lang    = require('../lang/en')
-require('../model/Post')
-require('../model/Comment')
-require('../model/User')
 var storageManager  = require('../managers/storage-manager')
 var uploadManager   = require('../managers/upload-manager')
-
 //router.use(uploadManager.uploadProfileImage)
 
 var isAuth = function(req, res, next){
@@ -91,13 +87,28 @@ router.post('/*', isAuth, function(req, res, next){
 
 
 router.get('/', function(req, res, next){
-    storageManager.getPosts({userId: {$in: req.session.user.friends}}, {start:0, limit:10}, function (err, posts) {
-        var model = {
-            user: req.session.user,
-            title: lang.title_main,
-            posts: posts
-        }
-        res.render('index', model)
+    storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
+        if(err) throw err
+        if(!friends) friends = []
+        friends.push(req.session.user.id)
+        storageManager.getPosts({
+            $or:[{
+                $and:[
+                    {userId: {$in: friends}},
+                    {privacy: false}
+                ]},
+                {userId: req.session.user.id}]}
+            ,{start:0, limit:10},
+            function (err, posts) {
+            var model = {
+                user: req.session.user,
+                title: lang.title_main,
+                friends: friends,
+                posts: posts,
+                showAddPost: true
+            }
+            res.render('index', model)
+        })
     })
 })
 

@@ -13,6 +13,14 @@ pre{
     border: none !important;
     border-radius: none !important;
 }
+@media(min-width:768px){
+    .modal-dialog {
+        width: 80% !important;
+    }
+}
+#leftSide{
+    padding-top: 15px;
+}
 .navbar-inverse{
     background-color: #323232 !important;
 }
@@ -46,6 +54,9 @@ pre{
     padding: 10px !important;
     margin-bottom: 10px;
 }
+.posts-user{
+    padding-right: 4px !important;
+}
 .posts-user-link a{
     font-weight: bold;
     color: #1a9f00;
@@ -53,9 +64,22 @@ pre{
 .posts-user-link a:hover{
     color: #196b00;
 }
-.posts-date span{
+.posts-delete-btn{
+    text-decoration: none !important;
+    font-size: 24px !important;
+    font-weight: normal !important;
+}
+.posts-profile-image{
+    padding-right: 10px !important;
+    padding-left: 0px !important;
+}
+.posts-date a{
     color: #777;
     font-size: 12px;
+    margin-right: 5px;
+}
+.posts-date a:hover{
+    text-decoration: none;
 }
 .posts-sub-block{
     width: 100%;
@@ -126,6 +150,13 @@ pre{
 .posts-comments-btn{
     color: #337ab7;
 }
+.posts-edit-options{
+    margin-top: 7px;
+}
+.img-dialog-btn{
+    cursor: pointer !important;
+}
+
 #userInfoNav{
     padding: 5px;
 }
@@ -161,4 +192,20 @@ pre{
 }
 #leftProfile img{
     max-width: 230px;
+}
+
+#imageModalImg{
+    margin: 0 auto;
+}
+#imageModalleft{
+    background-color: #323232;
+}
+#imageModalRight{
+    padding: 0 !important;
+}
+#imageModalRow{
+    margin: 0 !important;
+}
+#imageModalBody{
+    padding: 0 !important;
 }

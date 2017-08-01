@@ -1,8 +1,16 @@
-var mongoose   		= require('mongoose')
-var postSchema 		= mongoose.model('Post')
-var commentSchema 	= mongoose.model('Comment')
-var userSchema 		= mongoose.model('User')
-var commentsPerPage = 3;
+var mongoose   		    = require('mongoose')
+var postSchema 		    = mongoose.model('Post')
+var commentSchema 	    = mongoose.model('Comment')
+var userSchema 		    = mongoose.model('User')
+var extContentSchema 	= mongoose.model('ExtContent')
+var commentsPerPage     = 3;
+var youTubeRegex        = /.*.youtube.com.*v=([^\&]{11}).*/
+var YOUTUBE_CONTENT     = "youtube"
+var imageRegex          = /(https?:\/\/.*\.(?:jpg|JPG|jpeg|png|gif))/i
+var IMAGE_CONTENT       = "image"
+var checkRegexArr       = [{regex: youTubeRegex, token:YOUTUBE_CONTENT},
+                           {regex: imageRegex, token:IMAGE_CONTENT}]
+
 mongoose.connect('mongodb://localhost/face_afeka')
 
 var storageManager = {
@@ -24,6 +32,7 @@ var storageManager = {
     getPosts: function(query, params, callback) {
         postSchema.find(query)
             .populate('userId')
+            .populate('extContent')
             .populate({
                 path: 'comments',
                 model: 'Comment',
@@ -77,20 +86,32 @@ var storageManager = {
                 callback(err, comments)
             })
     },
-	addPost: function(user, postData, callback){
-        postData.userId		= user.id
-		var post 			= new postSchema(postData)
-		console.log("add post:\n"+JSON.stringify(post, null, "\t"))
-		post.save(function(err, doc){
-			callback(err, doc)
-		})
+	addPost: function(user, postData, callback) {
+        postData.userId = user.id
+        var post = new postSchema(postData)
+        var extContent = this.getExtContent(post.content)
+        console.log(extContent)
+        if (extContent) {
+            extContent = new extContentSchema(extContent)
+            extContent.save(function (err, doc) {
+                if(err) throw err;
+                post.extContent = doc.id
+                post.save(function(err, doc){
+                    callback(err, doc)
+                })
+            })
+        }else{
+            post.save(function(err, doc){
+                callback(err, doc)
+            })
+        }
 	},
 	likePost: function (user, postId, callback) {
         this.getPosts({ _id: mongoose.Types.ObjectId(postId), likes: user.id }, {start: 0, limit: 1}, function (err, post) {
         	var action;
         	var like;
             if (post.length > 0){
-				action 	= {$pull: {"likes": user.id}}
+				action = {$pull: {"likes": user.id}}
                 like = false
 			}else{
                 action = {$push: {"likes": user.id}}
@@ -106,8 +127,18 @@ var storageManager = {
             )
         })
     },
-	deletePost: function(){
-		console.log("delete post")
+    updatePost: function (postId, update, callback) {
+        postSchema.findByIdAndUpdate(mongoose.Types.ObjectId(postId),
+            {$set: update},
+            {safe: true, upsert: true, new : true},
+            callback)
+    },
+	deletePost: function(postId, callback){
+        postSchema.findOne({ _id: mongoose.Types.ObjectId(postId)}, function (err, post) {
+            commentSchema.remove({_id: {$in: post.comments}}, function (err) {
+                post.remove(callback)
+            })
+        });
 	},
 	addComment: function(user, postId, commentData, callback){
         commentData.userId = user.id
@@ -154,26 +185,46 @@ var storageManager = {
 	    this.getUser(query, function (err, user) {
             console.log(JSON.stringify(user, null, "\t"))
             var action
-            var friend = {}
+            var userCallback = {}
             if (user){
                 action 	= {$pull: {"friends": mongoose.Types.ObjectId(friendId)}}
-                friend.isFriend = false
+                userCallback.isFriend = false
             }else{
                 action = {$push: {"friends": mongoose.Types.ObjectId(friendId)}}
-                friend.isFriend = true
+                userCallback.isFriend = true
             }
             userSchema.findByIdAndUpdate(
                 mongoose.Types.ObjectId(userId),
                 action,
                 {safe: true, upsert: true, new : true},
                 function(err, doc) {
-                    friend.id = mongoose.Types.ObjectId(friendId);
-                    callback(err, friend);
+                    userCallback.friendList = doc.friends;
+                    callback(err, userCallback);
                 }
             )
         })
-    }
+    },
+    getFriendsByUserId: function (userId, callback) {
+        var query = { _id: mongoose.Types.ObjectId(userId)}
+        this.getUser(query, function (err, user) {
+            if(user)
+                callback(err, user.friends)
+            else
+                callback(err, null)
+        });
+    },
 
+    getExtContent: function(content) {
+        var matches, result = null
+        checkRegexArr.some(function (regexItem){
+            matches = regexItem.regex.exec(content)
+            if(matches && matches[1]) {
+                result = {content: matches[1], type: regexItem.token}
+                return true;
+            }
+        })
+        return result
+    }
 }
 
 module.exports = storageManager;

@@ -1,17 +1,27 @@
 #postsContainer
 if posts
     each post in posts
-        .container-fluid.posts
-            .row.posts-sub-block
-                .col-md-2.col-sm-2.col-xs-2
+        .container-fluid.posts(data-postid=post.id, data-privacy=''+post.privacy)
+            .posts-sub-block
+                .col-md-2.col-sm-2.col-xs-2.posts-profile-image
                     img.img.img-responsive.img-circle(src='/images/profile/tmb_'+post.userId.imagePath)
-                .col-md-10.col-sm-10.col-xs-10
+                .col-md-10.col-sm-10.col-xs-10.posts-user
                     .posts-user-link
                         a(href='/profile/'+post.userId.id) #{post.userId.displayName}
+                        a.posts-delete-btn.to-right(href='') &times;
                     .posts-date
-                        span #{post.timeago(post.date)}
+                        a(href='/posts/'+post.id) #{post.timeago(post.date)}
+                        if post.userId.id === user.id
+                            a(href='').posts-edit-btn.glyphicon.glyphicon-pencil
             .posts-content.posts-sub-block
                 pre #{post.content}
+                if post.extContent
+                    case post.extContent.type
+                        when "youtube"
+                            .embed-responsive.embed-responsive-16by9
+                                iframe.extContent.embed-responsive-item(src='https://www.youtube.com/embed/'+post.extContent.content)
+                        when "image"
+                            img.extContent.img-dialog-btn.img.img-responsive(src=post.extContent.content, data-toggle="modal", data-target="#imageModal")
             .posts-info.posts-sub-block
                 .posts-info-item.to-left
                     span.posts-likes-count #{post.likes.length}
@@ -20,11 +30,11 @@ if posts
                     span.posts-comments-btn #{post.comments.length} Comments
             .posts-func.posts-sub-block
                 - if (post.likes.indexOf(user.id) > -1)
-                    .posts-func-like.like(data-postid=post.id)
+                    .posts-func-like.like
                         span.glyphicon.glyphicon-heart
                         span.posts-like-btn Like
                 - else
-                    .posts-func-like(data-postid=post.id)
+                    .posts-func-like
                         span.glyphicon.glyphicon-heart
                         span.posts-like-btn Like
             .posts-comments.posts-sub-block
@@ -36,11 +46,11 @@ if posts
                             .posts-comment-date #{comment.timeago(comment.date)}
             if (post.comments.length - 3) > 0
                 .posts-comments-more.posts-sub-block
-                    a.load-more-comments(href='', data-postid=post.id, data-pagenum='0')
+                    a.load-more-comments(href='', data-pagenum='0')
                         span ···
                         span.posts-comments-load-more-left #{post.comments.length - 3}
                         span  more ··
             .posts-add-comment.posts-sub-block
-                form(method='post', action='./posts/'+post.id+'/add', class='addCommentForm')
+                form(method='post', action='/posts/'+post.id+'/add', class='add-comment-form')
                     textarea.form-control(name='content', placeholder='Leave a comment')
                     input(type='hidden', name='postid', value=post.id)
