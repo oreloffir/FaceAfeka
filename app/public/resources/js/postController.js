@@ -125,10 +125,12 @@ var postController = {
                         commentElement.appendTo(outputBlock).hide().fadeIn(700);
                     })
                     var left = parseInt(leftDiv.html()) - callback.response.length;
+                    outputBlock.animate({ scrollTop: outputBlock.prop("scrollHeight")}, 600);
                     if (left > 0)
                         leftDiv.html(left);
-                    else
-                        leftDiv.parent().hide();
+                    else {
+                        leftDiv.parents('.posts-comments-more').html("No more results");
+                    }
                 }
             },
             error: function (callback) {

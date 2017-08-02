@@ -1,6 +1,6 @@
 var scrollProfileLeft = {
     init: function () {
-        this.startPos   = 70;
+        this.startPos   = 20;
         this.leftBlock  = $("#leftSide");
         this.bindEvent();
     },

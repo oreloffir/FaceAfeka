@@ -1,6 +1,6 @@
 body {
 	margin: 0px;
-	padding: 0px;
+    padding-top: 70px;
     background-color: #eeeeee !important;
 }
 pre{
@@ -116,6 +116,21 @@ pre{
 }
 .posts-like-btn{
     padding: 4px;
+}
+.posts-comments{
+    max-height: 210px !important;
+    height: auto !important;
+    overflow-y: auto;
+}
+.posts-comments::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+.posts-comments::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #dddddd;
 }
 .posts-comment{
     font-size: 13px;
