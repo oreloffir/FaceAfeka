@@ -33,6 +33,6 @@ var imageDialog = {
         parentContent.find('.extContent').hide();
         parentContent.find('.posts-delete-btn').hide();
         imageDialog.imageModalImg.attr('src', $(this).attr('src'));
-        imageDialog.rightModal.html(parentContent.css('padding','15px'));
+        imageDialog.rightModal.html(parentContent.css('padding','15px').css('border', '0'));
     }
 }
