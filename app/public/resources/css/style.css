@@ -42,6 +42,17 @@ pre{
 #searchHeader{
 	margin-top: 8px;
 }
+#searchList{
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 10px !important;
+}
+#searchList li a{
+    padding: 0px !important;
+}
+#searchList li img{
+    padding-right: 5px !important;
+}
 .max-width-1000{
     max-width: 1000px !important;
 }
@@ -170,6 +181,10 @@ pre{
 }
 .img-dialog-btn{
     cursor: pointer !important;
+}
+.img-profile-search{
+    max-height: 35px;
+
 }
 
 #userInfoNav{

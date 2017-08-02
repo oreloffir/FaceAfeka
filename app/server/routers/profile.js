@@ -63,4 +63,19 @@ router.get('/:id/add', function(req, res, next){
     })
 })
 
+//search user
+router.get('/:value/search', function(req, res, next){
+	storageManager.searchUsers(req.params.value, function(err, users){
+		var model = {errors: []}
+		if(err){
+			model.errors.push(lang.err_searching)
+			model.success = false
+		}else{
+			model.success = true
+			model.res     = users
+		}
+		res.json(model)
+	})
+})
+
 module.exports = router

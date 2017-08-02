@@ -56,8 +56,8 @@ var storageManager = {
         this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {skip:0, limit:10}, callback)
 	},
 	getCommentsPost: function (postId, page, callback) {
-	    console.log("page: "+page)
-        console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
+	    //console.log("page: "+page)
+        //console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
 		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
             .populate(
                 {
@@ -180,6 +180,13 @@ var storageManager = {
             callback(err, user)
         })
     },
+	searchUsers: function (serchValue , callback) {
+    	var query = { "displayName": { "$regex": '^'+serchValue, "$options": "i" } }
+		userSchema.find(query)
+			.exec(function(err, users){
+				callback(err, users)
+			})
+	},
     addFriend: function (userId, friendId, callback) {
 	    var query = { _id: mongoose.Types.ObjectId(userId), friends: mongoose.Types.ObjectId(friendId)}
 	    this.getUser(query, function (err, user) {
@@ -213,7 +220,6 @@ var storageManager = {
                 callback(err, null)
         });
     },
-
     getExtContent: function(content) {
         var matches, result = null
         checkRegexArr.some(function (regexItem){

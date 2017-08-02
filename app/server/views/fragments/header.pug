@@ -11,7 +11,8 @@ nav.navbar.navbar-default.navbar-fixed-top
                 li
                     a#logo.navbar-brand(href="/") FaceAfeka
                 li
-                    input#searchHeader.form-control(type='text', placeholder='Search')
+                    input#searchHeader.form-control.dropdown-toggle(type='text', placeholder='Search')
+                    ul#searchList.dropdown-menu
             ul.nav.navbar-nav.navbar-right
                 li#userInfoNav
                     img(src='/images/profile/tmb_'+user.imagePath, class='img img-responsive img-circle')
