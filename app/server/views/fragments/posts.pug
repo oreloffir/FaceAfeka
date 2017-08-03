@@ -19,9 +19,8 @@ if posts
                     if post.images.length > 0
                         .row
                         each imagePath in post.images
-                            .col-md-6
-                                a.thumbnail
-                                    img.img-dialog-btn.img.img-responsive(src='/images/post/'+imagePath, data-toggle="modal", data-target="#imageModal")
+                            .col-md-6.posts-image-thumbnail
+                                img.img-dialog-btn.img.img-responsive.img-thumbnail(src='/images/post/'+imagePath, data-toggle="modal", data-target="#imageModal")
                     if post.extContent
                         case post.extContent.type
                             when "youtube"

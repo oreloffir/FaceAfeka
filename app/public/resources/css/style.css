@@ -191,6 +191,10 @@ pre{
 
 }
 
+.posts-image-thumbnail{
+    padding: 4px !important;
+}
+
 #userInfoNav{
     padding: 5px;
 }
@@ -243,8 +247,43 @@ pre{
 #imageModalBody{
     padding: 0 !important;
 }
+#prevImageModal{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    font-size: 50px;
+    opacity: 0.7;
+}
+#nextImageModal{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: 50px;
+    opacity: 0.7;
+}
 
+#nextImageModal:hover{
+    opacity: 1;
+}
 
+#prevImageModal:hover{
+    opacity: 1;
+}
+/*
+#nextImageModal span{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 20;
+}
+#nextImageModal span{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 20;
+}*/
 .upload-post-images-lable{
 
 }
