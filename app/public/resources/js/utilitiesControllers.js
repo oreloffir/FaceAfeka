@@ -17,6 +17,8 @@ var scrollProfileLeft = {
 
 var imageDialog = {
     init: function () {
+        this.imageModal         = $('#imageModal');
+        this.imageModalBody     = $('#imageModalBody');
         this.imageModalBtns     = $('.img-dialog-btn');
         this.imageModalImg      = $('#imageModalImg');
         this.rightModal         = $('#imageModalRight');
@@ -32,7 +34,9 @@ var imageDialog = {
         var parentContent = $(this).parents('.posts').clone();
         parentContent.find('.extContent').hide();
         parentContent.find('.posts-delete-btn').hide();
+        parentContent.find('.posts-content-external').hide();
         imageDialog.imageModalImg.attr('src', $(this).attr('src'));
+        imageDialog.imageModalImg.css("max-height", Math.ceil($(window).height() * 0.8));
         imageDialog.rightModal.html(parentContent.css('padding','15px').css('border', '0'));
     }
 }

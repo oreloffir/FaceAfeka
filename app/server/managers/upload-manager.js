@@ -10,6 +10,15 @@ var storageProfileImg = multer.diskStorage({
 	}
 })
 
+var storagePostImg = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './app/public/images/post')
+    },
+    filename: function (req, file, cb) {
+        cb(null, 'post_image_' + '_' + Date.now() + '.jpg')
+    }
+})
+
 module.exports.uploadProfileImage = multer({
 	storage: storageProfileImg,
 	limits: {
@@ -17,6 +26,14 @@ module.exports.uploadProfileImage = multer({
 		filesize: 5
 	}
 }).single('profileImage')
+
+module.exports.uploadPostImages = multer({
+    storage: storagePostImg,
+    limits: {
+        files: 4,
+        filesize: 5
+    }
+}).array('uploadPostImages')
 
 module.exports.createProfileImgs = function (file) {
 	console.log(file.filename + ' uploaded to  ' + file.path)
@@ -38,5 +55,4 @@ module.exports.createProfileImgs = function (file) {
 			.quality(90) // set JPEG quality
 			.write(tmbImgPath); // save
 	})
-
 }

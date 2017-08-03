@@ -15,13 +15,20 @@ if posts
                             a(href='').posts-edit-btn.glyphicon.glyphicon-pencil
             .posts-content.posts-sub-block
                 pre #{post.content}
-                if post.extContent
-                    case post.extContent.type
-                        when "youtube"
-                            .embed-responsive.embed-responsive-16by9
-                                iframe.extContent.embed-responsive-item(src='https://www.youtube.com/embed/'+post.extContent.content)
-                        when "image"
-                            img.extContent.img-dialog-btn.img.img-responsive(src=post.extContent.content, data-toggle="modal", data-target="#imageModal")
+                .posts-content-external
+                    if post.images.length > 0
+                        .row
+                        each imagePath in post.images
+                            .col-md-6
+                                a.thumbnail
+                                    img.img-dialog-btn.img.img-responsive(src='/images/post/'+imagePath, data-toggle="modal", data-target="#imageModal")
+                    if post.extContent
+                        case post.extContent.type
+                            when "youtube"
+                                .embed-responsive.embed-responsive-16by9
+                                    iframe.extContent.embed-responsive-item(src='https://www.youtube.com/embed/'+post.extContent.content)
+                            when "image"
+                                img.extContent.img-dialog-btn.img.img-responsive(src=post.extContent.content, data-toggle="modal", data-target="#imageModal")
             .posts-info.posts-sub-block
                 .posts-info-item.to-left
                     span.posts-likes-count #{post.likes.length}

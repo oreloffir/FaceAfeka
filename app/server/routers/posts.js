@@ -5,15 +5,25 @@ require('../model/Post')
 require('../model/Comment')
 require('../model/User')
 var storageManager = require('../managers/storage-manager')
+var uploadManager  = require('../managers/upload-manager')
 
-router.post('/add', function(req, res, next){
+router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
     var model = {errors: [] }
     validatePostInput(req.body, function(errArray){
         if(errArray){
             model.errors = errArray
             res.json(model)
         }else{
-            storageManager.addPost(req.session.user, req.body, function(err, post){
+            var postData = req.body;
+            postData.images = [];
+            console.log("files:")
+            console.log(req.files)
+            req.files.forEach(function (file) {
+                postData.images.push(file.filename)
+            })
+            console.log("postData:")
+            console.log(postData)
+            storageManager.addPost(req.session.user, postData, function(err, post){
                 if(err){
                     model.errors.push(lang.err_saving)
                     model.success = false

@@ -11,7 +11,7 @@ html
     body
         #signupBody.container
             h2 Signup
-            form#signupForm.form-horizontal(action='/signup', method='POST', enctype="multipart/form-data", role="form")
+            form#signupForm.form-horizontal(action='/signup', method='POST', enctype='multipart/form-data', role="form")
                 .form-group
                     input.form-control(type='text', placeholder='Display name', name='displayName', pattern='.{5,15}', required)
                 .form-group

@@ -7,9 +7,15 @@
                 a(href='/profile/') #{user.displayName}
             .posts-date
                 span just now
-    form#addPostForm(action='posts/add', method='POST')
-        .posts-content.posts-sub-block
+    form#addPostForm(action='posts/add', method='POST', enctype='multipart/form-data')
+        .posts-content.posts-sub-block.padding-bottom-0
             textarea#newPostContentInput.form-control(name='content', placeholder='Share something with your friends...')
+            .posts-func.posts-sub-block
+                label.btn.btn-default(for='uploadPostImages', class='upload-post-images-lable')
+                    span.glyphicon.glyphicon-picture
+                    |  Photos
+                |  Maximum 4 photos
+                input.form-control(type='file', multiple, name='uploadPostImages', id='uploadPostImages')
         .posts-func.posts-sub-block
             lable
                 input(type='checkbox', name='privacy')

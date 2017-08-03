@@ -13,6 +13,10 @@ pre{
     border: none !important;
     border-radius: none !important;
 }
+.padding-bottom-0{
+    padding-bottom: 0px !important;
+}
+
 @media(min-width:768px){
     .modal-dialog {
         width: 80% !important;
@@ -238,4 +242,17 @@ pre{
 }
 #imageModalBody{
     padding: 0 !important;
+}
+
+
+.upload-post-images-lable{
+
+}
+#uploadPostImages{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }

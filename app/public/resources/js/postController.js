@@ -6,31 +6,33 @@ var postController = {
         this.bindEvent();
     },
     bindEvent: function () {
-        var self = postController;
+        var self = this;
         this.addPostForm.submit(this.addPost);
         $(document).on('click', '.add-comment-form', function() {
             $(this).on('submit', self.addComment);
-            $(this).find("[name='content']").keypress(function (e) {
+            $(this).find("[name='content']").keyup(function (e) {
+                e.preventDefault();
                 var key = e.which;
                 if (key === 13) {
                     $(this).closest("form").submit();
                 }
             });
         });
-        $(document).on('click', '.posts-func-like', self.likePost);
-        $(document).on('click', '.load-more-comments', self.loadMoreComments);
-        $(document).on('click', '.posts-edit-btn', self.createEditPost);
-        $(document).on('click', '.posts-delete-btn', self.deletePost);
+        $(document).on('click', '.posts-func-like', this.likePost);
+        $(document).on('click', '.load-more-comments', this.loadMoreComments);
+        $(document).on('click', '.posts-edit-btn', this.createEditPost);
+        $(document).on('click', '.posts-delete-btn', this.deletePost);
     },
     addPost: function (e) {
         e.preventDefault();
         var self = postController;
-        var dataString = $(this).serialize();
         $.ajax({
             url: "./posts/add",
             type: $(this).attr("method"),
             dataType: "JSON",
-            data: dataString,
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
             success: function (callback) {
                 self.addPostErrors.html("");
                 if (callback.errors.length > 0) {
@@ -58,7 +60,6 @@ var postController = {
         var outputBlock = $(this).parents('.posts').find('.posts-comments');
         var contentArea = $(this).find("[name='content']");
         contentArea.val("");
-        contentArea.focusout();
         console.log(dataString);
         $.ajax({
             url: $(this).attr("action"),
@@ -66,11 +67,10 @@ var postController = {
             dataType: "JSON",
             data: dataString,
             success: function (callback) {
-                self.addPostErrors.html("");
                 if (callback.errors.length > 0) {
-                    // error
+                    console.log(callback.errors)
                 } else {
-                    console.log(callback);
+                    console.log(callback.response);
                     var commentElement = self.createCommentElement(callback.response);
                     commentElement.prependTo(outputBlock).hide().fadeIn(700);
                 }
