@@ -24,6 +24,8 @@ var imageDialog = {
         this.rightModal         = $('#imageModalRight');
         this.nextImageBtn       = $('#nextImageModal');
         this.prevImageBtn       = $('#prevImageModal');
+        this.imagesNav          = $('#imagesNav');
+        this.imagesNavBtns      = [];
         this.imagesPathArr      = [];
         this.caruselaCount      = 0;
         this.bindEvent();
@@ -41,37 +43,47 @@ var imageDialog = {
         })
     },
     crusela: function (action) {
-        var self = imageDialog;
+        var self = imageDialog,
+            currentPosition = 0,
+            prevPosition = Math.abs(self.caruselaCount % self.imagesPathArr.length);
+        $(self.imagesNavBtns[prevPosition]).removeClass('selected');
         switch(action) {
             case 'next':
-                self.caruselaCount++;
-                break;
-            case 'prev':
                 self.caruselaCount--;
                 break;
+            case 'prev':
+                self.caruselaCount++;
+                break;
         }
+        currentPosition = Math.abs(self.caruselaCount % self.imagesPathArr.length)
+        $(self.imagesNavBtns[currentPosition]).addClass('selected');
         self.imageModalImg
             .fadeOut(300, function() {
-                self.imageModalImg.attr('src', self.imagesPathArr[Math.abs(self.caruselaCount % self.imagesPathArr.length)]);
+                self.imageModalImg.attr('src', self.imagesPathArr[currentPosition]);
             })
             .fadeIn(300);
     },
     updateModal: function () {
         var self = imageDialog;
         self.imagesPathArr   = [];
-        self.caruselaCount   = 0;
+        self.imagesNav.html("");
         var postParent       = $(this).parents('.posts');
         var ImagesPathObjArr = postParent.find('.img-thumbnail');
 
         if(ImagesPathObjArr.length > 0) {
             //self.nextImageBtn.show();
             //self.prevImageBtn.show();
-            for (var i = 0; i < ImagesPathObjArr.length; i++)
+            for (var i = 0; i < ImagesPathObjArr.length; i++) {
+                self.imagesNav.append('<span></span>')
                 self.imagesPathArr.push($(ImagesPathObjArr[i]).attr('src'));
+            }
+            self.imagesNavBtns = self.imagesNav.find('span');
         }else{
             //imageDialog.nextImageBtn.hide();
             //imageDialog.prevImageBtn.hide();
         }
+        self.caruselaCount = self.imagesPathArr.indexOf($(this).attr('src'));
+        $(self.imagesNavBtns[self.caruselaCount]).addClass('selected');
         var parentContent = $(this).parents('.posts').clone();
         parentContent.find('.extContent').hide();
         parentContent.find('.posts-delete-btn').hide();

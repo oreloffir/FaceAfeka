@@ -208,10 +208,26 @@ pre{
     padding-left:5px !important;
 }
 
-.profile_left_info{
+.profile-left-info{
     margin-top:20px;
     padding-left: 10px;
     border-left: 1px solid #AAAAAA;
+}
+.posts-filters{
+    margin-bottom: 10px;
+}
+
+.posts-filters span{
+    color: #666666;
+    margin-right: 8px;
+}
+
+.posts-filters > .selected{
+    background-color: #196b00;
+}
+
+.posts-filter-item{
+    margin: 5px !important;
 }
 
 .btn-green{
@@ -254,6 +270,7 @@ pre{
     right: 20px;
     font-size: 50px;
     opacity: 0.7;
+    cursor: pointer;
 }
 #nextImageModal{
     color: #fff;
@@ -262,6 +279,7 @@ pre{
     left: 20px;
     font-size: 50px;
     opacity: 0.7;
+    cursor: pointer;
 }
 
 #nextImageModal:hover{
@@ -269,6 +287,29 @@ pre{
 }
 
 #prevImageModal:hover{
+    opacity: 1;
+}
+
+#imagesNav{
+    position: absolute;
+    bottom: 15px;
+    left: 45%;
+}
+#imagesNav span{
+    padding: 3px;
+    margin: 4px;
+    display: inline-block;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: 8px;
+    width: 8px;
+    opacity: 0.7;
+}
+#imagesNav span:hover{
+    opacity: 1;
+}
+#imagesNav > .selected{
+    background-color: #1a9f00;
     opacity: 1;
 }
 /*

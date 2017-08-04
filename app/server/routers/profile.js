@@ -17,7 +17,8 @@ router.get('/', function(req, res, next){
                     user: req.session.user,
                     friends: user.friends,
                     profile: user,
-                    posts: posts
+                    posts: posts,
+                    postsFilter: 'all'
                 }
                 res.render('profile', model)
             })
@@ -25,13 +26,29 @@ router.get('/', function(req, res, next){
     })
 })
 
-router.get('/:id', function(req, res, next){
+router.get('/:id/:filter?', function(req, res, next){
     storageManager.getUserById(req.params.id, function(err, user){
         if(err || user === null){
             res.redirect('/')
         }else{
             storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
-                storageManager.getPostsByUser(user._id.toString(), function(err, posts){
+                var action = 'getPostsByUser', filter = 'all'
+                if(req.params.filter) {
+                    switch (req.params.filter) {
+                        case 'photos':
+                            filter = 'photos'
+                            action = 'getImagesPostsByUser'
+                            break
+                        case 'external':
+                            filter = 'external'
+                            action = 'getExternalPostsByUser'
+                            break;
+                        case 'text':
+                            filter = 'text'
+                            action = 'getTextPostsByUser'
+                    }
+                }
+                storageManager[action](user._id.toString(), function(err, posts){
                     if(err) throw err
                     if(!friends) friends = []
                     var model = {
@@ -39,7 +56,8 @@ router.get('/:id', function(req, res, next){
                         user: req.session.user,
                         friends: friends,
                         profile: user,
-                        posts: posts
+                        posts: posts,
+                        postsFilter: filter
                     }
                     res.render('profile', model)
                 })
@@ -47,7 +65,6 @@ router.get('/:id', function(req, res, next){
         }
     })
 })
-
 router.get('/:id/add', function(req, res, next){
     storageManager.addFriend(req.session.user.id, req.params.id, function(err, user){
         var model = {errors: []}

@@ -55,6 +55,28 @@ var storageManager = {
 	getPostsByUser: function(userId, callback){
         this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {skip:0, limit:10}, callback)
 	},
+    getImagesPostsByUser: function (userId, callback) {
+        var query = {
+            userId: mongoose.Types.ObjectId(userId),
+            images: { $exists: true, $ne: [] }
+        }
+        this.getPosts(query, {skip:0, limit:10}, callback)
+    },
+    getExternalPostsByUser: function (userId, callback) {
+        var query = {
+            userId: mongoose.Types.ObjectId(userId),
+            extContent: { $exists: true }
+        }
+        this.getPosts(query, {skip:0, limit:10}, callback)
+    },
+    getTextPostsByUser: function (userId, callback) {
+        var query = {
+            userId: mongoose.Types.ObjectId(userId),
+            extContent: { $exists: false },
+            images: []
+        }
+        this.getPosts(query, {skip:0, limit:10}, callback)
+    },
 	getCommentsPost: function (postId, page, callback) {
 	    //console.log("page: "+page)
         //console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)

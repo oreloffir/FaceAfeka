@@ -1,0 +1,13 @@
+//
+   Created by Guy on 8/4/2017.
+img.img-dialog-btn.img.img-responsive.img-circle(src='/images/profile/'+profile.imagePath, data-toggle="modal", data-target="#imageModal")
+.profile-left-info
+    .profile-left-info-displayName #{profile.displayName}
+    .profile-left-info-email #{profile.email}
+    .profile-left-info-friends #{profile.friends.length} Friends
+    if profile.id !== user.id
+        .profile_left_info_add_friend
+            - if (friends.indexOf(profile.id) <= -1)
+                button#profileFriendBtn.btn.btn-green(data-profileid = profile.id) Add friend
+            - else
+                button#profileFriendBtn.btn(data-profileid = profile.id) Unfriend

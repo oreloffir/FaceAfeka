@@ -17,22 +17,19 @@ html
         .container-fluid.max-width-1000
             .row
                 #leftSide.col-md-3.col-sm-3
-                    img.img-dialog-btn.img.img-responsive.img-circle(src='/images/profile/'+profile.imagePath, data-toggle="modal", data-target="#imageModal")
-                    .profile_left_info
-                        .profile_left_info_displayName #{profile.displayName}
-                        .profile_left_info_email #{profile.email}
-                        .profile_left_info_friends #{profile.friends.length} Friends
-                        if profile.id !== user.id
-                            .profile_left_info_add_friend
-                                - if (friends.indexOf(profile.id) <= -1)
-                                    button#profileFriendBtn.btn.btn-green(data-profileid = profile.id) Add friend
-                                - else
-                                    button#profileFriendBtn.btn(data-profileid = profile.id) Unfriend
+                    include fragments/profileLeft.pug
                 .col-md-6.col-sm-6
                     include fragments/addPost.pug
+                    .posts-filters
+                        span Filter:
+                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id, class=( postsFilter === 'all' ? 'selected' : '')) All
+                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/photos', class=( postsFilter === 'photos' ? 'selected' : '')) Photos
+                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/external', class=( postsFilter === 'external' ? 'selected' : '')) External
+                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/text', class=( postsFilter === 'text' ? 'selected' : '')) Text
                     include fragments/posts.pug
 
-                .col-md-3.col-sm-3 FaceAfeka 2017 (c)
+                .col-md-3.col-sm-3
+                    | right
         include fragments/imageModal.pug
         script.
             postController.init();
