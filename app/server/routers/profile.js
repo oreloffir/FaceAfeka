@@ -26,6 +26,21 @@ router.get('/', function(req, res, next){
     })
 })
 
+router.get('/:id/add', function(req, res, next){
+    storageManager.addFriend(req.session.user.id, req.params.id, function(err, user){
+        var model = {errors: []}
+
+        if(err){
+            model.errors.push(lang.err_saving)
+            model.success = false
+        }else{
+            model.success = true
+            model.res     = user.isFriend
+        }
+        res.json(model)
+    })
+})
+
 router.get('/:id/:filter?', function(req, res, next){
     storageManager.getUserById(req.params.id, function(err, user){
         if(err || user === null){
@@ -63,20 +78,6 @@ router.get('/:id/:filter?', function(req, res, next){
                 })
             })
         }
-    })
-})
-router.get('/:id/add', function(req, res, next){
-    storageManager.addFriend(req.session.user.id, req.params.id, function(err, user){
-        var model = {errors: []}
-
-        if(err){
-            model.errors.push(lang.err_saving)
-            model.success = false
-        }else{
-            model.success = true
-            model.res     = user.isFriend
-        }
-        res.json(model)
     })
 })
 

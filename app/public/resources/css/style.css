@@ -114,6 +114,12 @@ pre{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.posts-content-text{
+    margin-bottom: 8px;
+}
+.big-content{
+    font-size: 22px !important;
+}
 .posts-info{
     color: #777;
     font-size: 12px;
@@ -229,6 +235,7 @@ pre{
 .posts-filters span{
     color: #666666;
     margin-right: 8px;
+    margin-left: 6px;
 }
 
 .posts-filters > .selected{

@@ -228,7 +228,7 @@ var postController = {
         var postParent = $(this).parents('.posts');
         var postId = postParent.attr('data-postid');
         var postPrivacy = postParent.attr('data-privacy');
-        var contentHolder = postParent.find('.posts-content');
+        var contentHolder = postParent.find('.posts-content-text');
         var currentContent = contentHolder.children('pre').html();
 
         var editForm = $("<form method='post' action='/posts/" + postId + "/edit'></form>");
@@ -263,7 +263,7 @@ var postController = {
         e.preventDefault();
         var self = postController;
         var postParent = $(this).parents('.posts');
-        var contentHolder = postParent.find('.posts-content');
+        var contentHolder = postParent.find('.posts-content-text');
         var postId = postParent.attr('data-postid');
         $.ajax({
             url: $(this).attr('action'),

@@ -14,12 +14,13 @@ if posts
                         if post.userId.id === user.id
                             a(href='').posts-edit-btn.glyphicon.glyphicon-pencil
             .posts-content.posts-sub-block
-                pre #{post.content}
-                .posts-content-external
+                .posts-content-text.posts-sub-block
+                    pre(class=(post.content.length  < 50 ? 'big-content' : '')) #{post.content}
+                .posts-content-external.posts-sub-block
                     if post.images.length > 0
                         .row
                         each imagePath in post.images
-                            .col-md-6.posts-image-thumbnail
+                            .col-md-6.col-sm-6.col-xs-6.posts-image-thumbnail
                                 img.img-dialog-btn.img.img-responsive.img-thumbnail(src='/images/post/'+imagePath, data-toggle="modal", data-target="#imageModal")
                     if post.extContent
                         case post.extContent.type
