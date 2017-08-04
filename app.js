@@ -14,6 +14,7 @@ require('./app/server/model/ExtContent')
 var postsRoute 	    = require('./app/server/routers/posts')
 var authRoute       = require('./app/server/routers/auth')
 var profileRoute    = require('./app/server/routers/profile')
+var searchRoute    = require('./app/server/routers/search')
 
 // Set express application
 var app = express()
@@ -32,6 +33,7 @@ app.use(session({
 app.use('/', authRoute);
 app.use('/posts', postsRoute);
 app.use('/profile', profileRoute);
+app.use('/search', searchRoute);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

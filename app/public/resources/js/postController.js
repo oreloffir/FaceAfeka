@@ -1,8 +1,12 @@
 var postController = {
     init: function () {
+        this.MAX_PHOTOS         = 4;
+        this.validPost          = true;
         this.addPostForm        = $('#addPostForm');
         this.addPostErrors      = $('#addPostErrors');
         this.postsContainer     = $('#postsContainer');
+        this.filesInput         = $('#uploadPostImages');
+        this.fileInputFeedBack  = $('#uploadPostImagesFeedBack');
         this.bindEvent();
     },
     bindEvent: function () {
@@ -22,12 +26,15 @@ var postController = {
         $(document).on('click', '.load-more-comments', this.loadMoreComments);
         $(document).on('click', '.posts-edit-btn', this.createEditPost);
         $(document).on('click', '.posts-delete-btn', this.deletePost);
+        this.filesInput.on('change', this.filesSelectd)
     },
     addPost: function (e) {
         e.preventDefault();
         var self = postController;
+        if(!self.validPost)
+            return false;
         $.ajax({
-            url: "./posts/add",
+            url: "/posts/add",
             type: $(this).attr("method"),
             dataType: "JSON",
             data: new FormData(this),
@@ -52,6 +59,18 @@ var postController = {
                 console.log(callback);
             }
         });
+    },
+    filesSelectd: function () {
+        var self = postController;
+        if(this.files.length > self.MAX_PHOTOS){
+            self.fileInputFeedBack.addClass('red');
+            self.fileInputFeedBack.html("Maximum 4 photos");
+            self.validPost = false;
+        }else{
+            self.fileInputFeedBack.html("Selected "+this.files.length+" photos");
+            self.fileInputFeedBack.addClass('green-afeka');
+            self.validPost = true;
+        }
     },
     addComment: function (e) {
         e.preventDefault();

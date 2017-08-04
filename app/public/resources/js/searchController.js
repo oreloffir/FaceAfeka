@@ -24,7 +24,7 @@ var searchController = {
 	search: function (input) {
 		var self = searchController;
 		$.ajax({
-			url: '/profile/'+input+'/search/',
+			url: '/search/profile/'+input,
 			type: 'GET',
 			dataType: "JSON",
 			success: function(callback){
