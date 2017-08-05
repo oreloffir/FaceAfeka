@@ -1,3 +1,5 @@
+//
+   Created by Guy on 8/5/2017.
 doctype html
 html
     head
@@ -10,23 +12,21 @@ html
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='/resources/js/postController.js')
         script(src='/resources/js/searchController.js')
+        script(src='/resources/js/profileController.js')
         script(src='/resources/js/utilitiesControllers.js')
     body
         include fragments/header.pug
-
         .container-fluid.max-width-1000
             .row
-                #leftSide.col-md-3.col-sm-3 left
-                .col-md-6.col-sm-6
-                    if showAddPost
-                        include fragments/addPost.pug
-                    #postsContainer
-                        include fragments/posts.pug
-
-                .col-md-3.col-sm-3 FaceAfeka 2017 (c)
+                .col-md-3.col-sm-3
+                    .affix
+                        include fragments/profileLeft.pug
+                .col-md-9.col-sm-9
+                    include fragments/gallery.pug
         include fragments/imageModal.pug
         script.
             postController.init();
+            profileController.init();
+            scrollProfileLeft.init();
             imageDialog.init();
             searchController.init();
-            scrollProfileLeft.init();

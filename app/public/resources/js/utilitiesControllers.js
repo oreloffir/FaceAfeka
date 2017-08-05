@@ -8,6 +8,7 @@ var scrollProfileLeft = {
         $(window).scroll(this.scroll);
     },
     scroll: function () {
+        var windowHeight = $(document).height;
         var self = scrollProfileLeft;
         var top = $(document).scrollTop();
         if (top < self.startPos) top = self.startPos;
@@ -67,7 +68,19 @@ var imageDialog = {
         var self = imageDialog;
         self.imagesPathArr   = [];
         self.imagesNav.html("");
-        var postParent       = $(this).parents('.posts');
+        var postParent = $(this).parents('.posts');
+        if(postParent.length === 0) {
+            var postId = $(this).attr('data-postid');
+            $.ajax({
+                url: "/posts/"+postId+"/ajax",
+                async: false,
+                method: 'GET',
+                success: function (data) {
+                    console.log(data);
+                    postParent = $(data);
+                }
+            });
+        }
         var ImagesPathObjArr = postParent.find('.img-thumbnail');
 
         if(ImagesPathObjArr.length > 0) {
@@ -84,7 +97,7 @@ var imageDialog = {
         }
         self.caruselaCount = self.imagesPathArr.indexOf($(this).attr('src'));
         $(self.imagesNavBtns[self.caruselaCount]).addClass('selected');
-        var parentContent = $(this).parents('.posts').clone();
+        var parentContent = postParent.clone();
         parentContent.find('.extContent').hide();
         parentContent.find('.posts-delete-btn').hide();
         parentContent.find('.posts-content-external').hide();

@@ -7,7 +7,7 @@
                 a(href='/profile/') #{user.displayName}
             .posts-date
                 span just now
-    form#addPostForm(action='posts/add', method='POST', enctype='multipart/form-data')
+    form#addPostForm.posts-sub-block(action='posts/add', method='POST', enctype='multipart/form-data')
         .posts-content.posts-sub-block.padding-bottom-0
             textarea#newPostContentInput.form-control(name='content', placeholder='Share something with your friends...')
             .posts-func.posts-sub-block

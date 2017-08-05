@@ -16,8 +16,9 @@ html
         include fragments/header.pug
         .container-fluid.max-width-1000
             .row
-                #leftSide.col-md-3.col-sm-3
-                    include fragments/profileLeft.pug
+                .col-md-3.col-sm-3
+                    .affix
+                        include fragments/profileLeft.pug
                 .col-md-6.col-sm-6
                     include fragments/addPost.pug
                     .posts-filters
@@ -26,6 +27,7 @@ html
                         a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/photos', class=( postsFilter === 'photos' ? 'selected' : '')) Photos
                         a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/external', class=( postsFilter === 'external' ? 'selected' : '')) External
                         a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/text', class=( postsFilter === 'text' ? 'selected' : '')) Text
+                    #postsContainer
                     include fragments/posts.pug
 
                 .col-md-3.col-sm-3
@@ -34,6 +36,6 @@ html
         script.
             postController.init();
             profileController.init();
-            scrollProfileLeft.init();
+            //scrollProfileLeft.init();
             imageDialog.init();
             searchController.init();

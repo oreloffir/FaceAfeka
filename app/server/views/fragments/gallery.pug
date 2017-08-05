@@ -1,0 +1,7 @@
+//
+   Created by Guy on 8/5/2017.
+if photos
+    .row
+        each photo in photos
+            .col-md-3.col-sm-4.col-xs-6.gallery-image-thumbnail
+                img.img-dialog-btn.img.img-responsive.img-thumbnail(src='/images/post/' + photo.imagePath, data-toggle="modal", data-target="#imageModal", data-postid=''+photo.postId)

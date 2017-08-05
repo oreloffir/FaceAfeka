@@ -13,6 +13,19 @@ pre{
     border: none !important;
     border-radius: none !important;
 }
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 .red{
     color: red !important;
 }
@@ -209,11 +222,9 @@ pre{
     max-height: 35px;
 
 }
-
 .posts-image-thumbnail{
     padding: 4px !important;
 }
-
 #userInfoNav{
     padding: 5px;
 }
@@ -236,6 +247,18 @@ pre{
     margin-top:15px;
     color: #666666;
     font-size: 15px;
+}
+.profile-left-subtitle span{
+    float: left;
+}
+.profile-left-subtitle a{
+    float: right;
+    color: #1a9f00;
+    font-weight: bold;
+}
+.profile-left-subtitle a:hover{
+    color: #196b00;
+    text-decoration: none;
 }
 .profile-left-info{
     padding-left: 10px;
@@ -382,6 +405,9 @@ pre{
 .upload-post-images-lable{
 
 }
+.profile-img{
+    max-width: 220px !important;
+}
 #uploadPostImages{
     width: 0.1px;
     height: 0.1px;
@@ -389,4 +415,8 @@ pre{
     overflow: hidden;
     position: absolute;
     z-index: -1;
+}
+
+.gallery-image-thumbnail{
+    padding: 4px !important;
 }

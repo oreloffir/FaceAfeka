@@ -45,8 +45,8 @@ var storageManager = {
                 }
             })
             .skip(params.start)
-            .sort({date: -1})
             .limit(params.limit)
+            .sort({date: -1})
             .exec(function (err, posts) {
                 callback(err, posts)
             })
@@ -268,12 +268,19 @@ var storageManager = {
     },
     getFriendsByUserId: function (userId, callback) {
         var query = { _id: mongoose.Types.ObjectId(userId)}
-        this.getUsers(query, function (err, users) {
+        userSchema.find(query, function (err, users) {
             if(users)
                 callback(err, users[0].friends)
             else
                 callback(err, null)
         });
+    },
+    getImagesByUserId: function (userId, params, callback) {
+        imageSchema.find({ userId: mongoose.Types.ObjectId(userId)})
+            .sort({date: -1})
+            .skip(params.start)
+            .limit(params.limit)
+            .exec(callback)
     },
     getExtContent: function(content) {
         var matches, result = null
