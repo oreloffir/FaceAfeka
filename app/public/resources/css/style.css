@@ -117,6 +117,9 @@ pre{
 .posts-content-text{
     margin-bottom: 8px;
 }
+.posts-content-text pre{
+    white-space: initial;
+}
 .big-content{
     font-size: 22px !important;
 }
@@ -223,13 +226,46 @@ pre{
     display: inline;
     padding-left:5px !important;
 }
-
-.profile-left-info{
+.profile-left-title{
     margin-top:20px;
-    padding-left: 10px;
-    border-left: 2px solid #22d100
-;
+    color: #666666;
+    font-size: 22px;
+    font-weight: bold;
 }
+.profile-left-subtitle{
+    margin-top:15px;
+    color: #666666;
+    font-size: 15px;
+}
+.profile-left-info{
+    padding-left: 10px;
+    border-left: 2px solid #22d100;
+    color: #666666;
+}
+
+.profile-left-friends{
+    color: #666666;
+}
+.profile-left-friend{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.profile-left-friend img{
+    display: inline-block;
+    width: 40px;
+}
+.profile-left-friend a{
+    padding: 7px;
+    color: #1a9f00;
+}
+.profile-left-friend a:hover{
+    color: #196b00;
+}
+.profile-left-friend a:hover{
+    text-decoration: none;
+}
+
+
 .posts-filters{
     margin-bottom: 10px;
 }

@@ -9,12 +9,13 @@ require('./app/server/model/Post')
 require('./app/server/model/Comment')
 require('./app/server/model/User')
 require('./app/server/model/ExtContent')
+require('./app/server/model/Image')
 
 // Routes
 var postsRoute 	    = require('./app/server/routers/posts')
 var authRoute       = require('./app/server/routers/auth')
 var profileRoute    = require('./app/server/routers/profile')
-var searchRoute    = require('./app/server/routers/search')
+var searchRoute     = require('./app/server/routers/search')
 
 // Set express application
 var app = express()

@@ -63,7 +63,7 @@ router.get('/:id/:filter?', function(req, res, next){
                             action = 'getTextPostsByUser'
                     }
                 }
-                storageManager[action](user._id.toString(), function(err, posts){
+                storageManager[action](user.id.toString(), function(err, posts){
                     if(err) throw err
                     if(!friends) friends = []
                     var model = {
@@ -75,6 +75,7 @@ router.get('/:id/:filter?', function(req, res, next){
                         postsFilter: filter
                     }
                     res.render('profile', model)
+                    console.log(user)
                 })
             })
         }

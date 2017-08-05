@@ -50,9 +50,10 @@ var postController = {
                     });
                     self.addPostErrors.html("<div class=\"alert alert-danger to-left\" role=\"\" >" + errorsString + "</div>");
                 } else {
-                    console.log(callback);
-                    var postElement = self.createPostElement(callback.response);
-                    postElement.prependTo(self.postsContainer).hide().fadeIn(700);
+                    //var postElement = self.createPostElement(callback.response);
+                    $.get("/posts/"+callback.response.id+"/ajax", function( data ) {
+                        $(data).prependTo(self.postsContainer).hide().fadeIn(700);
+                    });
                 }
             },
             error: function (callback) {

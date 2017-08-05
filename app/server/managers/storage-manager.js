@@ -3,6 +3,7 @@ var postSchema 		    = mongoose.model('Post')
 var commentSchema 	    = mongoose.model('Comment')
 var userSchema 		    = mongoose.model('User')
 var extContentSchema 	= mongoose.model('ExtContent')
+var imageSchema 	    = mongoose.model('Image')
 var commentsPerPage     = 3;
 var youTubeRegex        = /.*.youtube.com.*v=([^\&]{11}).*/
 var YOUTUBE_CONTENT     = "youtube"
@@ -33,6 +34,7 @@ var storageManager = {
         postSchema.find(query)
             .populate('userId')
             .populate('extContent')
+            .populate('images')
             .populate({
                 path: 'comments',
                 model: 'Comment',
@@ -50,7 +52,12 @@ var storageManager = {
             })
     },
 	getPostById: function(postId, callback){
-		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {skip:0, limit:1}, callback)
+		this.getPosts({_id: mongoose.Types.ObjectId(postId)}, {skip:0, limit:1}, function (err, posts) {
+            if(posts[0])
+                callback(null, posts[0])
+            else
+                callback(err, posts)
+        })
 	},
 	getPostsByUser: function(userId, callback){
         this.getPosts({userId: mongoose.Types.ObjectId(userId)}, {skip:0, limit:10}, callback)
@@ -78,8 +85,6 @@ var storageManager = {
         this.getPosts(query, {skip:0, limit:10}, callback)
     },
 	getCommentsPost: function (postId, page, callback) {
-	    //console.log("page: "+page)
-        //console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
 		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
             .populate(
                 {
@@ -110,22 +115,44 @@ var storageManager = {
     },
 	addPost: function(user, postData, callback) {
         postData.userId = user.id
-        var post = new postSchema(postData)
-        var extContent = this.getExtContent(post.content)
-        console.log(extContent)
-        if (extContent) {
-            extContent = new extContentSchema(extContent)
-            extContent.save(function (err, doc) {
-                if(err) throw err;
-                post.extContent = doc.id
-                post.save(function(err, doc){
-                    callback(err, doc)
+        var post        = new postSchema(postData)
+
+        if(postData.imagesNames && postData.imagesNames.length > 0){
+            post.save(function(err, post){
+                if(err) {
+                    console.log(err)
+                    callback(err, post)
+                    return
+                }
+                var imagesArr = []
+                postData.imagesNames.forEach(function (imagePath) {
+                    imagesArr.push(new imageSchema({
+                        userId: user.id,
+                        postId: post.id,
+                        imagePath: imagePath
+                    }))
+                })
+                imageSchema.insertMany(imagesArr, function (err, images) {
+                    post.images = images
+                    post.save(callback)
                 })
             })
         }else{
-            post.save(function(err, doc){
-                callback(err, doc)
-            })
+            var extContent = this.getExtContent(post.content)
+            if (extContent) {
+                extContent = new extContentSchema(extContent)
+                extContent.save(function (err, doc) {
+                    if(err) throw err;
+                    post.extContent = doc.id
+                    post.save(function(err, doc){
+                        callback(err, doc)
+                    })
+                })
+            }else{
+                post.save(function(err, doc){
+                    callback(err, doc)
+                })
+            }
         }
 	},
 	likePost: function (user, postId, callback) {
@@ -158,7 +185,13 @@ var storageManager = {
 	deletePost: function(postId, callback){
         postSchema.findOne({ _id: mongoose.Types.ObjectId(postId)}, function (err, post) {
             commentSchema.remove({_id: {$in: post.comments}}, function (err) {
-                post.remove(callback)
+                if(post.extContent){
+                    extContentSchema.remove({_id: post.extContent}, function () {
+                        post.remove(callback)
+                    })
+                }else{
+                    post.remove(callback)
+                }
             })
         });
 	},
@@ -191,31 +224,31 @@ var storageManager = {
 			callback(err, res)
 		})
 	},
-    getUser: function(query, callback){
+    getUsers: function(query, callback){
         userSchema.find(query)
+            .populate('friends')
             .exec(function(err, users){
-                callback(err, users[0])
+                callback(err, users)
             })
     },
     getUserById: function(userId, callback){
-        this.getUser({_id: mongoose.Types.ObjectId(userId)}, function (err, user) {
-            callback(err, user)
+        this.getUsers({_id: mongoose.Types.ObjectId(userId)}, function (err, users) {
+            if(users)
+                callback(err, users[0])
+            else
+                callback(err, null)
         })
     },
 	searchUsers: function (serchValue , callback) {
-    	var query = { "displayName": { "$regex": '^'+serchValue, "$options": "i" } }
-		userSchema.find(query)
-			.exec(function(err, users){
-				callback(err, users)
-			})
+    	var query = { displayName: { $regex: '^'+serchValue, $options: "i" } }
+        this.getUsers(query,callback )
 	},
     addFriend: function (userId, friendId, callback) {
 	    var query = { _id: mongoose.Types.ObjectId(userId), friends: mongoose.Types.ObjectId(friendId)}
-	    this.getUser(query, function (err, user) {
-            console.log(JSON.stringify(user, null, "\t"))
+	    this.getUsers(query, function (err, users) {
             var action
             var userCallback = {}
-            if (user){
+            if (users[0]){
                 action 	= {$pull: {"friends": mongoose.Types.ObjectId(friendId)}}
                 userCallback.isFriend = false
             }else{
@@ -235,9 +268,9 @@ var storageManager = {
     },
     getFriendsByUserId: function (userId, callback) {
         var query = { _id: mongoose.Types.ObjectId(userId)}
-        this.getUser(query, function (err, user) {
-            if(user)
-                callback(err, user.friends)
+        this.getUsers(query, function (err, users) {
+            if(users)
+                callback(err, users[0].friends)
             else
                 callback(err, null)
         });

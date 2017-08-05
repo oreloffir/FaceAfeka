@@ -15,11 +15,9 @@ router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
             res.json(model)
         }else{
             var postData = req.body;
-            postData.images = [];
-            console.log("files:")
-            console.log(req.files)
+            postData.imagesNames = [];
             req.files.forEach(function (file) {
-                postData.images.push(file.filename)
+                postData.imagesNames.push(file.filename)
             })
             console.log("postData:")
             console.log(postData)
@@ -46,14 +44,13 @@ router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
 })
 
 router.get('/:id', function(req, res, next){
-    storageManager.getPostById(req.params.id, function(err, posts){
+    storageManager.getPostById(req.params.id, function(err, post){
         var model = {
             user: req.session.user,
             title: lang.title_main,
-            posts: posts,
-            showAddPost: false
+            posts: [post],
         }
-        res.render('index', model)
+        res.render('singlePost', model)
     })
 })
 
@@ -66,6 +63,18 @@ router.delete('/:id', function(req, res, next){
             model.success = true
             res.json(model)
         }
+    })
+})
+
+router.get('/:id/ajax', function(req, res, next){
+    var model = { errors: [] }
+    storageManager.getPostById(req.params.id, function(err, post){
+        console.log(post)
+        var model = {
+            user: req.session.user,
+            posts: [post]
+        }
+        res.render('fragments/posts', model);
     })
 })
 

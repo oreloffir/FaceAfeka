@@ -15,6 +15,7 @@ module.exports = {
 	err_comment_content_empty: 'Comment content cannot be empty',
 
 	err_post_content_empty: 'Post content cannot be empty',
+	err_post_image_empty: 'Posts image error',
 
 	err_login_invalid: 'Invalid email or password',
 

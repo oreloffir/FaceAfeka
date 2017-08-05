@@ -1,0 +1,9 @@
+//
+   Created by Guy on 8/5/2017.
+.profile-left-subtitle Recent photos
+.profile-left-friends
+    if profile.friends
+        each friend in profile.friends
+            .profile-left-friend
+                img.img.img-responsive.img-circle(src='/images/profile/tmb_'+friend.imagePath)
+                a(href='/profile/'+friend.id) #{friend.displayName} <br>
