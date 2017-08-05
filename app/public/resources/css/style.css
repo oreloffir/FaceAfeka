@@ -168,6 +168,7 @@ pre{
 .posts-comment a{
     color: #1a9f00;
     margin-right: 6px;
+    font-weight: bold;
 }
 .posts-comment a:hover{
     color: #196b00;
@@ -226,7 +227,8 @@ pre{
 .profile-left-info{
     margin-top:20px;
     padding-left: 10px;
-    border-left: 1px solid #AAAAAA;
+    border-left: 2px solid #22d100
+;
 }
 .posts-filters{
     margin-bottom: 10px;

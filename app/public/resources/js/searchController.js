@@ -33,7 +33,7 @@ var searchController = {
 
 				$.each(callback.res, function (idx, user) {
 					imgElement = "<img class='img img-circle img-profile-search' src='/images/profile/tmb_"+user.imagePath+"'>";
-					self.searchList.append('<li><a href="profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
+					self.searchList.append('<li><a href="/profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
 				})
 
 			},
