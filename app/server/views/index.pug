@@ -16,7 +16,9 @@ html
 
         .container-fluid.max-width-1000
             .row
-                #leftSide.col-md-3.col-sm-3 left
+                .col-md-3.col-sm-3
+                    .affix
+                        //include fragments/profileLeft.pug
                 .col-md-6.col-sm-6
                     if showAddPost
                         include fragments/addPost.pug
@@ -29,4 +31,4 @@ html
             postController.init();
             imageDialog.init();
             searchController.init();
-            scrollProfileLeft.init();
+            //scrollProfileLeft.init();

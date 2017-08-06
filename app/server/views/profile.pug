@@ -22,13 +22,17 @@ html
                 .col-md-6.col-sm-6
                     include fragments/addPost.pug
                     .posts-filters
-                        span Filter:
-                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id, class=( postsFilter === 'all' ? 'selected' : '')) All
-                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/photos', class=( postsFilter === 'photos' ? 'selected' : '')) Photos
-                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/external', class=( postsFilter === 'external' ? 'selected' : '')) External
-                        a.btn.btn-green.posts-filter-item(href='/profile/'+profile.id+'/text', class=( postsFilter === 'text' ? 'selected' : '')) Text
+                        ul.nav.nav-tabs
+                            li(role='presentation', class=( postsFilter === 'all' ? 'active' : ''))
+                                a(href='/profile/'+profile.id) All
+                            li(role='presentation', class=( postsFilter === 'photos' ? 'active' : ''))
+                                a(href='/profile/'+profile.id+'/photos') Photos
+                            li(role='presentation', class=( postsFilter === 'external' ? 'active' : ''))
+                                a(href='/profile/'+profile.id+'/external') External
+                            li(role='presentation', class=( postsFilter === 'text' ? 'active' : ''))
+                                a(href='/profile/'+profile.id+'/text') Text
                     #postsContainer
-                    include fragments/posts.pug
+                        include fragments/posts.pug
 
                 .col-md-3.col-sm-3
                     include fragments/profileRight.pug
