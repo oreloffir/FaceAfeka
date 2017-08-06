@@ -13,7 +13,10 @@ pre{
     border: none !important;
     border-radius: none !important;
 }
-
+.navbar-default{
+    background-color: #fff !important;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+}
 .row {
     display: -webkit-box;
     display: -webkit-flex;
