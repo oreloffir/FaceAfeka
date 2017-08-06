@@ -15,7 +15,7 @@ router.get('/profile/:value', function(req, res, next){
             model.success = false
         }else{
             model.success = true
-            model.res     = users
+            model.res     = users.slice(0,6)
         }
         res.json(model)
     })

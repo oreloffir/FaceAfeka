@@ -1,3 +1,9 @@
+/*
+Scroll Profile left controller,
+responsible for the profile left fragment in the profile view.
+listening to scrolling,
+change the fragment position according to scrolling
+ */
 var scrollProfileLeft = {
     init: function () {
         this.startPos   = 20;
@@ -5,9 +11,9 @@ var scrollProfileLeft = {
         this.bindEvent();
     },
     bindEvent: function () {
-        $(window).scroll(this.scroll);
+        $(window).scroll(this.scroll); //listening to scrolling
     },
-    scroll: function () {
+    scroll: function () { //change the fragment position according to scrolling
         var windowHeight = $(document).height;
         var self = scrollProfileLeft;
         var top = $(document).scrollTop();
@@ -16,6 +22,12 @@ var scrollProfileLeft = {
     }
 }
 
+/*
+Image dialog controller,
+responsible for show/update the image modal.
+listening to click on img, right/left change img btns
+show the image modal / update the modal
+ */
 var imageDialog = {
     init: function () {
         this.imageModal         = $('#imageModal');
@@ -33,9 +45,10 @@ var imageDialog = {
     },
     bindEvent: function () {
         var self = imageDialog;
-        this.imageModalBtns.each(function(index, imageBtn){
+        this.imageModalBtns.each(function(index, imageBtn){ // listening to click on img
             $(imageBtn).on('click', self.updateModal)
         })
+	    //listening to click on right/left change img btns
         this.nextImageBtn.on('click', function () {
             self.crusela('next');
         })
@@ -69,7 +82,7 @@ var imageDialog = {
         self.imagesPathArr   = [];
         self.imagesNav.html("");
         var postParent = $(this).parents('.posts');
-        if(postParent.length === 0) {
+        if(postParent.length === 0) { // gallery doesn't have post container, need to get the post.
             var postId = $(this).attr('data-postid');
             $.ajax({
                 url: "/posts/"+postId+"/ajax",
@@ -81,23 +94,23 @@ var imageDialog = {
                 }
             });
         }
-        var ImagesPathObjArr = postParent.find('.img-thumbnail');
+        var ImagesPathObjArr = postParent.find('.img-thumbnail'); // for posts with more than 1 img
 
-        if(ImagesPathObjArr.length > 0) {
-            //self.nextImageBtn.show();
-            //self.prevImageBtn.show();
-            for (var i = 0; i < ImagesPathObjArr.length; i++) {
+        if(ImagesPathObjArr.length > 1) {
+            self.nextImageBtn.show();
+            self.prevImageBtn.show();
+            for (var i = 0; i < ImagesPathObjArr.length; i++) { // crate array with all the img paths
                 self.imagesNav.append('<span></span>')
                 self.imagesPathArr.push($(ImagesPathObjArr[i]).attr('src'));
             }
             self.imagesNavBtns = self.imagesNav.find('span');
         }else{
-            //imageDialog.nextImageBtn.hide();
-            //imageDialog.prevImageBtn.hide();
+            imageDialog.nextImageBtn.hide();
+            imageDialog.prevImageBtn.hide();
         }
         self.caruselaCount = self.imagesPathArr.indexOf($(this).attr('src'));
         $(self.imagesNavBtns[self.caruselaCount]).addClass('selected');
-        var parentContent = postParent.clone();
+        var parentContent = postParent.clone(); // clone the parent post for display in the img dialog
         parentContent.find('.extContent').hide();
         parentContent.find('.posts-delete-btn').hide();
         parentContent.find('.posts-content-external').hide();

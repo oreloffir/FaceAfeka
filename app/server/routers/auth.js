@@ -7,7 +7,7 @@ var uploadManager   = require('../managers/upload-manager')
 
 var isAuth = function(req, res, next){
     if(req.session.user){
-        console.log('userOnline!')
+        //console.log('userOnline!')
         next()
     }
     else
@@ -43,14 +43,11 @@ router.post('/signup', uploadManager.uploadProfileImage, function(req, res, next
 			})
 		}
 	})
-
-
 })
 
 router.get('/login', function(req, res, next){
     res.render('login', {title: lang.title_login})
 })
-
 
 router.post('/login', function(req, res, next){
     console.log('post request for login')

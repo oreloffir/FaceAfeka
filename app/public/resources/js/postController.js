@@ -1,3 +1,11 @@
+/*
+Post controller,
+responsible for...
+listening to submit on add post/comment,
+send the ... by Ajax to ... route,
+receive ...,
+toggle ...
+ */
 var postController = {
     init: function () {
         this.MAX_PHOTOS         = 4;

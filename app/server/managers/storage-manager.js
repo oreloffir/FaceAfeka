@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost/face_afeka')
 
 var storageManager = {
 	login: function(email, password, callback){
-		userSchema.findOne({ email: email.toLowerCase() })
+		userSchema.findOne({ email: email.toLowerCase()},['+hash', '+salt'])
 		.exec(function(err, user){
 			if(err)
 				callback(err, null)
@@ -85,6 +85,8 @@ var storageManager = {
         this.getPosts(query, {skip:0, limit:10}, callback)
     },
 	getCommentsPost: function (postId, page, callback) {
+	    //console.log("page: "+page)
+        //console.log("start: "+(commentsPerPage * page)+" limit:"+commentsPerPage)
 		postSchema.find({ _id: mongoose.Types.ObjectId(postId)}, 'comments')
             .populate(
                 {
@@ -228,6 +230,8 @@ var storageManager = {
         userSchema.find(query)
             .populate('friends')
             .exec(function(err, users){
+            	console.log(users)
+	            mongoose
                 callback(err, users)
             })
     },

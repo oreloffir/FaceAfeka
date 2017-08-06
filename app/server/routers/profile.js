@@ -70,6 +70,7 @@ router.get('/:id/gallery', function(req, res, next) {
 })
 
 router.get('/:id/:filter?', function(req, res, next){
+    console.log(req.params)
     storageManager.getUserById(req.params.id, function(err, user){
         if(err || user === null){
             res.redirect('/')
@@ -89,6 +90,7 @@ router.get('/:id/:filter?', function(req, res, next){
                         case 'text':
                             filter = 'text'
                             action = 'getTextPostsByUser'
+	                        break;
                     }
                 }
                 storageManager[action](user.id.toString(), function(err, posts){

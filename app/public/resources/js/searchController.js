@@ -1,54 +1,59 @@
+/*
+Search controller,
+responsible for the search component in the header.
+listening to keyUp in search input,
+send the input string by Ajax to search route,
+receive list of users that the display name start with the input,
+create drop-sown list with the result
+ */
 var searchController = {
 	init: function () {
-		this.searchInput = $('#searchHeader');
-		this.searchList = $('#searchList');
+		this.searchInput = $('#searchHeader'); //The search input component
+		this.searchList = $('#searchList'); //The search drop-down list component
 
 		this.bindEvent();
 	},
 	bindEvent: function () {
 		var self = searchController;
-		$(document).one('click', '#searchHeader', function() {
-			self.searchList.hide()
-			$(this).on('keyup' , self.keypress);
-		});
+		self.searchInput.on('keyup' , self.keypress);
 	},
 	keypress: function (e) {
 		var self = searchController;
 		var input = self.searchInput.val();
 		if(self.validateInput(input)){
-			console.log(input)
 			self.search(input)
 		}
-		self.searchList.html('')
+		self.searchList.html('<li></li>')
 	},
 	search: function (input) {
 		var self = searchController;
-		$.ajax({
+
+		$.ajax({ //send the input string by Ajax to search route
 			url: '/search/profile/'+input,
 			type: 'GET',
 			dataType: "JSON",
-			success: function(callback){
-				console.log(callback);
+			success: function(callback){ //receive list of users that the display name start with the input
 				var imgElement;
-
-				$.each(callback.res, function (idx, user) {
-					imgElement = "<img class='img img-circle img-profile-search' src='/images/profile/tmb_"+user.imagePath+"'>";
-					self.searchList.append('<li><a href="/profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
-				})
-
+				if(callback.res.length === 0)
+					self.searchList.append('<li> no result </li>')
+				else{ // create drop-sown list with the result
+					$.each(callback.res, function (idx, user) {
+						imgElement = "<img class='img img-circle img-profile-search' src='/images/profile/tmb_"+user.imagePath+"'>";
+						self.searchList.append('<li><a href="/profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
+					})
+				}
 			},
 			error: function (callback) {
 				console.log(callback);
 			}
 		});
 	},
-	validateInput: function (input) {
+	validateInput: function (input) { // validate the input string
 		var self = searchController;
 		var string =input.trim();
 		if(string.length > 0 ){
 			self.searchList.show()
 			return true;
-
 		}
 		self.searchList.hide()
 		return false;
