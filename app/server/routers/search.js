@@ -6,7 +6,9 @@ require('../model/Comment')
 require('../model/User')
 var storageManager = require('../managers/storage-manager')
 
-//search user
+/**
+ * This route will handle search request.
+ */
 router.get('/profile/:value', function(req, res, next){
     storageManager.searchUsers(req.params.value, function(err, users){
         var model = {errors: []}

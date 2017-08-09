@@ -286,13 +286,14 @@ var storageManager = {
      * This method responsible to update a post based on post id
      *
      * @callback requestCallback
+     * @param {UserSchema} user - the user
      * @param {String} postId - the post id to edit
      * @param {object} update - fields with value according to postSchema
      *         for example { content: "updated content" } will set the post content to "updated content".
      * @param {requestCallback} callback - The callback that handles the response (err, post)
      */
-    updatePost: function (postId, update, callback) {
-        postSchema.findByIdAndUpdate(mongoose.Types.ObjectId(postId),
+    updatePost: function (user, postId, update, callback) {
+        postSchema.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(postId), userId: user.id },
             {$set: update},
             {safe: true, upsert: true, new : true},
             callback)
@@ -300,11 +301,12 @@ var storageManager = {
     /**
      * This method will delete a post based on post id
      * @callback requestCallback
+     * @param {UserSchema} user - the user
      * @param {String} postId - the post id to delete
      * @param {requestCallback} callback
      */
-	deletePost: function(postId, callback){
-        postSchema.findOne({ _id: mongoose.Types.ObjectId(postId)}, function (err, post) {
+	deletePost: function(user, postId, callback){
+        postSchema.findOne({ _id: mongoose.Types.ObjectId(postId), userId: user.id }, function (err, post) {
             commentSchema.remove({_id: {$in: post.comments}}, function (err) {
                 if(post.extContent){
                     extContentSchema.remove({_id: post.extContent}, function () {
@@ -477,6 +479,7 @@ var storageManager = {
      * This method will analysis a given post content for external content
      * Regex and token are defined at checkRegexArr
      * @see checkRegexArr
+     * @see addPost
      * @return {object} result, result.content = the external content required value,
      *                          result.type = the token
      */

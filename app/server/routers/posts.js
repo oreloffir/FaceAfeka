@@ -7,6 +7,12 @@ require('../model/User')
 var storageManager = require('../managers/storage-manager')
 var uploadManager  = require('../managers/upload-manager')
 
+/**
+ * This route manages post request to add new post
+ * uploadManager.uploadPostImages is a middleware to upload images
+ * @see upload-manager.uploadPostImages
+ * @see storage-manager.addPost
+ */
 router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
     var model = {errors: [] }
     validatePostInput(req.body, function(errArray){
@@ -14,19 +20,24 @@ router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
             model.errors = errArray
             res.json(model)
         }else{
+            // create postData object
             var postData = req.body;
+            // set a property of images names array
             postData.imagesNames = [];
+            // if we have files uploaded, we need to add them to the post,
+            // storage manager will handle the rest
             req.files.forEach(function (file) {
                 postData.imagesNames.push(file.filename)
             })
-            console.log("postData:")
-            console.log(postData)
+            //console.log("postData:")
+            //console.log(postData)
             storageManager.addPost(req.session.user, postData, function(err, post){
                 if(err){
                     model.errors.push(lang.err_saving)
                     model.success = false
                 }else{
                     model.success = true
+                    // create result post for client
                     var resPost = {}
                     resPost.id          = post.id
                     resPost.userId      = req.session.user
@@ -43,20 +54,25 @@ router.post('/add', uploadManager.uploadPostImages, function(req, res, next){
     })
 })
 
+/**
+ * This route will return a single post view based on specific post id
+ */
 router.get('/:id', function(req, res, next){
     storageManager.getPostById(req.params.id, function(err, post){
         var model = {
             user: req.session.user,
             title: lang.title_main,
-            posts: [post],
+            posts: [post]
         }
         res.render('singlePost', model)
     })
 })
-
+/**
+ * This route will handle delete request for a post
+ */
 router.delete('/:id', function(req, res, next){
     var model = { errors: [] }
-    storageManager.deletePost(req.params.id, function (err) {
+    storageManager.deletePost(req.session.user, req.params.id, function (err) {
         if(err)
             model.errors.push(lang.err_saving)
         else{
@@ -66,6 +82,9 @@ router.delete('/:id', function(req, res, next){
     })
 })
 
+/**
+ * This route return a single view of a specific post (html only)
+ */
 router.get('/:id/ajax', function(req, res, next){
     storageManager.getPostById(req.params.id, function(err, post){
         console.log(post)
@@ -77,6 +96,9 @@ router.get('/:id/ajax', function(req, res, next){
     })
 })
 
+/**
+ * This route will handle post request for editing a post
+ */
 router.post('/:id/edit', function(req, res, next){
     var model = { errors: [] }
 
@@ -86,7 +108,7 @@ router.post('/:id/edit', function(req, res, next){
             res.json(model)
         } else {
             var update = {content: req.body.content, privacy: req.body.privacy}
-            storageManager.updatePost(req.params.id, update, function(err, post){
+            storageManager.updatePost(req.session.user, req.params.id, update, function(err, post){
                 if(err){
                     model.errors.push(lang.err_saving)
                     model.success = false
@@ -100,6 +122,9 @@ router.post('/:id/edit', function(req, res, next){
     })
 })
 
+/**
+ * This route handle load more comments ajax call
+ */
 router.get('/:id/comments/:page', function(req, res, next){
     var model = {errors: [] }
     storageManager.getCommentsPost(req.params.id, parseInt(req.params.page), function(err, comments){
@@ -116,7 +141,10 @@ router.get('/:id/comments/:page', function(req, res, next){
     });
 })
 
-// add comment
+/**
+ * This route will handle a new comment post request for a specific post
+ * @see storage-manager.addComment
+ */
 router.post('/:id/add', function(req, res, next){
     var model = {errors: [] }
 
@@ -131,6 +159,7 @@ router.post('/:id/add', function(req, res, next){
                     model.success = false
                 }else{
                     model.success = true
+                    // create the response comment element for client
                     var resComment = {}
                     resComment.id           = comment.id
                     resComment.userId       = req.session.user
@@ -145,7 +174,9 @@ router.post('/:id/add', function(req, res, next){
     });
 })
 
-// add like
+/**
+ * This route will handle like post request
+ */
 router.get('/:id/like', function(req, res, next){
     var model = {errors: [] }
     storageManager.likePost(req.session.user, req.params.id, function(err, like){
