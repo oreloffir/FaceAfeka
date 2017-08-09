@@ -83,17 +83,17 @@ var imageDialog = {
         }
         var ImagesPathObjArr = postParent.find('.img-thumbnail');
 
-        if(ImagesPathObjArr.length > 0) {
-            //self.nextImageBtn.show();
-            //self.prevImageBtn.show();
+        if(ImagesPathObjArr.length > 1) {
+            self.nextImageBtn.show();
+            self.prevImageBtn.show();
             for (var i = 0; i < ImagesPathObjArr.length; i++) {
                 self.imagesNav.append('<span></span>')
                 self.imagesPathArr.push($(ImagesPathObjArr[i]).attr('src'));
             }
             self.imagesNavBtns = self.imagesNav.find('span');
         }else{
-            //imageDialog.nextImageBtn.hide();
-            //imageDialog.prevImageBtn.hide();
+            imageDialog.nextImageBtn.hide();
+            imageDialog.prevImageBtn.hide();
         }
         self.caruselaCount = self.imagesPathArr.indexOf($(this).attr('src'));
         $(self.imagesNavBtns[self.caruselaCount]).addClass('selected');
