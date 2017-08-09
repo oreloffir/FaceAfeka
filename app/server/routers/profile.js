@@ -6,6 +6,9 @@ require('../model/Comment')
 require('../model/User')
 var storageManager = require('../managers/storage-manager')
 
+/**
+ * Profile index
+ */
 router.get('/', function(req, res, next){
     storageManager.getUserById(req.session.user.id, function(err, user){
         if(err || user === null){
@@ -32,6 +35,9 @@ router.get('/', function(req, res, next){
     })
 })
 
+/**
+ * This route will handle add friend request
+ */
 router.get('/:id/add', function(req, res, next){
     storageManager.addFriend(req.session.user.id, req.params.id, function(err, user){
         var model = {errors: []}
@@ -47,6 +53,9 @@ router.get('/:id/add', function(req, res, next){
     })
 })
 
+/**
+ * This route display gallery of a specific user
+ */
 router.get('/:id/gallery', function(req, res, next) {
     storageManager.getUserById(req.params.id, function (err, user) {
         if (err || user === null) {
@@ -70,6 +79,10 @@ router.get('/:id/gallery', function(req, res, next) {
     })
 })
 
+/**
+ * This route filter profile posts [photos, external, text]
+ * Uses reflection to do it
+ */
 router.get('/:id/:filter?', function(req, res, next){
     console.log(req.params)
     storageManager.getUserById(req.params.id, function(err, user){
@@ -77,6 +90,7 @@ router.get('/:id/:filter?', function(req, res, next){
             res.redirect('/')
         }else{
             storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
+                // set default values
                 var action = 'getPostsByUser', filter = 'all'
                 if(req.params.filter) {
                     switch (req.params.filter) {
@@ -94,6 +108,7 @@ router.get('/:id/:filter?', function(req, res, next){
 	                        break;
                     }
                 }
+                // all action method on storageManager (reflection)
                 storageManager[action](user.id.toString(), function(err, posts){
                     if(err) throw err
                     storageManager.getImagesByUserId(user.id.toString(), {start:0, limit:8}, function (err, images) {

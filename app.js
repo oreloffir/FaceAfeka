@@ -13,7 +13,7 @@ require('./app/server/model/Image')
 
 // Routes
 var postsRoute 	    = require('./app/server/routers/posts')
-var authRoute       = require('./app/server/routers/auth')
+var authRoute       = require('./app/server/routers/index')
 var profileRoute    = require('./app/server/routers/profile')
 var searchRoute     = require('./app/server/routers/search')
 
