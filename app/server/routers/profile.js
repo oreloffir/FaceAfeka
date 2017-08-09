@@ -21,6 +21,7 @@ router.get('/', function(req, res, next){
                         friends: user.friends,
                         profile: user,
                         posts: posts,
+                        postsFilter: 'all',
                         userPhotos: images
                     }
                     res.render('profile', model)

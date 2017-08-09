@@ -13,17 +13,27 @@ pre{
     border: none !important;
     border-radius: none !important;
 }
-
+.navbar-default{
+    background-color: #fff !important;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+}
 .row {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display:         flex;
+    display: flex;
     flex-wrap: wrap;
 }
 .row > [class*='col-'] {
     display: flex;
     flex-direction: column;
+}
+
+.nav-tabs > li > a{
+    color:#1a9f00;
+}
+.nav-tabs > li > a:hover{
+    color:#196b00;
 }
 
 .red{
@@ -40,7 +50,17 @@ pre{
     .modal-dialog {
         width: 80% !important;
     }
+    .affix {
+        position: fixed;
+    }
 }
+
+@media (max-width: 767px) {
+    .affix {
+        position: relative !important;
+    }
+}
+
 #leftSide{
     padding-top: 15px;
 }
@@ -329,6 +349,7 @@ pre{
 
 #imageModalImg{
     margin: 0 auto;
+    height: 100%;
 }
 #imageModalleft{
     background-color: #323232;

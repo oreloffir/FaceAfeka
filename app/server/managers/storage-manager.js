@@ -116,6 +116,8 @@ var storageManager = {
             })
     },
 	addPost: function(user, postData, callback) {
+        console.log("-------------postData--------------")
+	    console.log(postData)
         postData.userId = user.id
         var post        = new postSchema(postData)
 
