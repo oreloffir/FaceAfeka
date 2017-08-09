@@ -246,7 +246,7 @@ var storageManager = {
         })
     },
 	searchUsers: function (serchValue , callback) {
-    	var query = { displayName: { $regex: '^'+serchValue, $options: "i" } }
+    	var query = { displayName: { $regex: '^' + serchValue, $options: "i" } }
         this.getUsers(query,callback )
 	},
     addFriend: function (userId, friendId, callback) {
