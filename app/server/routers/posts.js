@@ -67,7 +67,6 @@ router.delete('/:id', function(req, res, next){
 })
 
 router.get('/:id/ajax', function(req, res, next){
-    var model = { errors: [] }
     storageManager.getPostById(req.params.id, function(err, post){
         console.log(post)
         var model = {

@@ -8,8 +8,10 @@ create drop-sown list with the result
  */
 var searchController = {
 	init: function () {
-		this.searchInput = $('#searchHeader'); //The search input component
-		this.searchList = $('#searchList'); //The search drop-down list component
+        //The search input component
+		this.searchInput = $('#searchHeader');
+        //The search drop-down list component
+		this.searchList = $('#searchList');
 
 		this.bindEvent();
 	},
@@ -28,7 +30,8 @@ var searchController = {
 	search: function (input) {
 		var self = searchController;
 
-		$.ajax({ //send the input string by Ajax to search route
+        //send the input string by Ajax to search route
+		$.ajax({
 			url: '/search/profile/'+input,
 			type: 'GET',
 			dataType: "JSON",
