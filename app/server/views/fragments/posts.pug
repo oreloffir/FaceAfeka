@@ -53,8 +53,8 @@ if posts
                 .posts-comments-more.posts-sub-block
                     a.load-more-comments(href='', data-pagenum='0')
                         span ···
-                        span.posts-comments-load-more-left #{post.comments.length - 3}
-                        span  more ··
+                        span.posts-comments-load-more-remain #{post.comments.length - 3}
+                        span  more ···
             .posts-add-comment.posts-sub-block
                 form(method='post', action='/posts/'+post.id+'/add', class='add-comment-form')
                     textarea.form-control(name='content', placeholder='Leave a comment')

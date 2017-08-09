@@ -1,14 +1,16 @@
 /*
 Post controller,
-responsible for...
-listening to submit on add post/comment,
-send the ... by Ajax to ... route,
-receive ...,
-toggle ...
+responsible for all functions in post
+listening to submit on add post/comment, like.
+send the req by Ajax to posts route,
  */
 var postController = {
     init: function () {
+        // max photos for post
         this.MAX_PHOTOS         = 4;
+	    this.MAX_PHOTOS_Alert   = 'Maximum '+this.MAX_PHOTOS+' photos'
+	    this.No_More_Results    = 'No more results';
+	    // flag for validate post
         this.validPost          = true;
         this.addPostForm        = $('#addPostForm');
         this.addPostErrors      = $('#addPostErrors');
@@ -19,9 +21,13 @@ var postController = {
     },
     bindEvent: function () {
         var self = this;
+	    // listening to submit of the addPostForm
         this.addPostForm.submit(this.addPost);
+	    // listening to click on add comment form
         $(document).on('click', '.add-comment-form', function() {
+	        // listening to submit and call to add comment
             $(this).on('submit', self.addComment);
+	        // listening to 'enter key' in the textarea and call to submit
             $(this).find("[name='content']").keyup(function (e) {
                 e.preventDefault();
                 var key = e.which;
@@ -30,17 +36,23 @@ var postController = {
                 }
             });
         });
+
+        // listening to click on func btn go to the appropriate function
         $(document).on('click', '.posts-func-like', this.likePost);
         $(document).on('click', '.load-more-comments', this.loadMoreComments);
         $(document).on('click', '.posts-edit-btn', this.createEditPost);
         $(document).on('click', '.posts-delete-btn', this.deletePost);
-        this.filesInput.on('change', this.filesSelectd)
+        // when the user select photos call to filesSelected
+        this.filesInput.on('change', this.filesSelected)
     },
+	// add new post
     addPost: function (e) {
         e.preventDefault();
         var self = postController;
+        // check the valid post flag
         if(!self.validPost)
             return false;
+	    // send the post by Ajax to posts route
         $.ajax({
             url: "/posts/add",
             type: $(this).attr("method"),
@@ -48,17 +60,19 @@ var postController = {
             data: new FormData(this),
             processData: false,
             contentType: false,
+	        // receive modal with errors and response
             success: function (callback) {
                 self.addPostErrors.html("");
+                // check the errors
                 if (callback.errors.length > 0) {
-                    console.log("callback = errors");
+                    // update the add post errors div with the callback errors
                     errorsString = "";
                     callback.errors.forEach(function (error) {
                         errorsString += error + " <br\>"
                     });
                     self.addPostErrors.html("<div class=\"alert alert-danger to-left\" role=\"\" >" + errorsString + "</div>");
                 } else {
-                    //var postElement = self.createPostElement(callback.response);
+                    // add the new posts container with the new post
                     $.get("/posts/"+callback.response.id+"/ajax", function( data ) {
                         $(data).prependTo(self.postsContainer).hide().fadeIn(700);
                     });
@@ -69,36 +83,44 @@ var postController = {
             }
         });
     },
-    filesSelectd: function () {
+    // the user select new photo/s to upload
+    filesSelected: function () {
         var self = postController;
+        // check the num of photos if more than the limit print error and change the valid post flag
         if(this.files.length > self.MAX_PHOTOS){
             self.fileInputFeedBack.addClass('red');
-            self.fileInputFeedBack.html("Maximum 4 photos");
+            self.fileInputFeedBack.html(this.MAX_PHOTOS_Alert);
             self.validPost = false;
         }else{
+            // give positive feedback for user
             self.fileInputFeedBack.html("Selected "+this.files.length+" photos");
             self.fileInputFeedBack.addClass('green-afeka');
             self.validPost = true;
         }
     },
+    // add new comment to post
     addComment: function (e) {
         e.preventDefault();
         var self = postController;
+        // get the date from the form
         var dataString = $(this).serialize();
+        // the comments container
         var outputBlock = $(this).parents('.posts').find('.posts-comments');
+	    // find and clear the comment form textArea
         var contentArea = $(this).find("[name='content']");
         contentArea.val("");
-        console.log(dataString);
+	    // send the comment by Ajax to posts route
         $.ajax({
             url: $(this).attr("action"),
             type: $(this).attr("method"),
             dataType: "JSON",
             data: dataString,
+	        // receive modal with errors and response
             success: function (callback) {
                 if (callback.errors.length > 0) {
                     console.log(callback.errors)
                 } else {
-                    console.log(callback.response);
+                    // prepand the new comment element to the comments container
                     var commentElement = self.createCommentElement(callback.response);
                     commentElement.prependTo(outputBlock).hide().fadeIn(700);
                 }
@@ -108,16 +130,23 @@ var postController = {
             }
         });
     },
+	// add like or unlike a post
     likePost: function (e) {
+	    e.preventDefault();
+	    // get the post container
         var postParent = $(this).parents('.posts');
+	    // get the postId from post's attr 'data-postid'
         var postId = postParent.attr('data-postid');
         var likeCount = postParent.find('.posts-likes-count');
         var likeBtn = $(this);
+	    // send like by Ajax to posts route
         $.ajax({
             url: '/posts/' + postId + '/like',
-            type: 'GET',
+            type: 'POST',
             dataType: "JSON",
+	        // receive modal with errors and response
             success: function (callback) {
+            	// update the like btn and the like counter
                 if (callback.success) {
                     likeBtn.toggleClass('like');
                     if (callback.response)
@@ -131,33 +160,41 @@ var postController = {
             }
         });
     },
+	// load more comment
     loadMoreComments: function (e) {
         e.preventDefault();
         var self = postController;
+	    // get the post container
         var postParent = $(this).parents('.posts');
-        var loadBtn = $(this);
-        var leftDiv = postParent.find('.posts-comments-load-more-left');
+	    // the load more btn
+        var remainCommentsDiv = postParent.find('.posts-comments-load-more-remain');
         var pageNumber = parseInt($(this).attr('data-pagenum'));
         var postId = postParent.attr('data-postid');
+        // the block of comments
         var outputBlock = postParent.find('.posts-comments');
         $(this).attr('data-pagenum', (pageNumber + 1));
+	    // send request by Ajax to posts route
         $.ajax({
             url: '/posts/' + postId + '/comments/' + (pageNumber + 1),
             type: 'GET',
             dataType: "JSON",
+	        // receive modal with success and response
             success: function (callback) {
-                console.log(callback);
+            	// check the req success and the num of comments
                 if (callback.success && callback.response.length > 0) {
+                	// add the new comments to the block
                     $(callback.response).each(function (index, comment) {
                         var commentElement = self.createCommentElement(comment);
                         commentElement.appendTo(outputBlock).hide().fadeIn(700);
                     })
-                    var left = parseInt(leftDiv.html()) - callback.response.length;
+	                // calculate the num of the remaining comments and update UI
+                    var remain = parseInt(remainCommentsDiv.html()) - callback.response.length;
+                    // scroll animation to the bottom of the block ( where the new comment )
                     outputBlock.animate({ scrollTop: outputBlock.prop("scrollHeight")}, 600);
-                    if (left > 0)
-                        leftDiv.html(left);
+                    if (remain > 0)
+	                    remainCommentsDiv.html(remain);
                     else {
-                        leftDiv.parents('.posts-comments-more').html("No more results");
+	                    remainCommentsDiv.parents('.posts-comments-more').html(this.No_More_Results);
                     }
                 }
             },
@@ -166,62 +203,7 @@ var postController = {
             }
         });
     },
-    createPostElement: function (post) {
-        var postElement = "";
-
-        postElement += "<div class=\"container-fluid posts\">";
-        postElement += "<div class=\"row posts-sub-block\">";
-        postElement += "<div class=\"col-md-2 col-sm-2 col-xs-2\">";
-        postElement += "<img class=\"img-circle img-responsive\" src=\"http://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg\">";
-        postElement += "</div>"
-        postElement += "<div class=\"col-md-10 col-sm-10 col-xs-10\">";
-        postElement += "<div class=\"posts-user-link\">";
-        postElement += "<a href=\"/profile/" + post.userId.id + "\">" + post.userId.displayName + "</a>";
-        postElement += "</div>"
-        postElement += "<div class=\"posts-date\">";
-        postElement += "<span>" + post.date + "</span>";
-        postElement += "</div>"
-        postElement += "</div>";
-        postElement += "</div>";
-        postElement += "<div class=\"posts-content posts-sub-block\">";
-        postElement += post.content;
-        postElement += "</div>";
-        postElement += "<div class=\"posts-info posts-sub-block\">";
-        postElement += "<div class=\"posts-info-item to-left\">";
-        postElement += post.likes.length + " Likes";
-        postElement += "</div>";
-        postElement += "<div class=\"posts-info-item to-right\">";
-        postElement += "<a href=\"\">" + post.comments.length + " Comments</a>";
-        postElement += "</div>";
-        postElement += "</div>";
-        postElement += "<div class=\"posts-func posts-sub-block\">";
-        postElement += "<div class=\"posts-info-item to-left\">";
-        postElement += "<span class=\"glyphicon glyphicon-heart\"></span> <span>Like</span>";
-        postElement += "</div>";
-        postElement += "</div>";
-        postElement += "<div class=\"posts-comments posts-sub-block\">";
-        $.each(post.comments.slice(0, 3), function (comment) {
-            postElement += "<div class=\"posts-comment posts-sub-block\">";
-            postElement += "<a href=\"/profile/" + comment.userId.id + "\">" + comment.userId.displayName + "</a>";
-            postElement += "<span>" + comment.content + "</span>";
-            postElement += "<div class=\"posts-comment-date\">" + comment.date + "</div>";
-            postElement += "</div>";
-        });
-        postElement += "</div>";
-        postElement += "<div class=\"posts-comments-more posts-sub-block\">";
-        var commentsLeft = post.comments.length - 3;
-        if (commentsLeft < 0)
-            commentsLeft = 0;
-        postElement += "<a href=\"\">··· " + commentsLeft + " more ···</a>";
-        postElement += "</div>";
-        postElement += "<div class=\"posts-add-comment posts-sub-block\">";
-        postElement += "<form method=\"post\">";
-        postElement += "<textarea class=\"form-control\" name=\"content\" placeholder=\"Leave a comment\"></textarea>"
-        postElement += "</form>"
-        postElement += "</div>";
-        postElement += "</div>";
-        return $(postElement);
-    },
+	// create new comment element
     createCommentElement: function (comment) {
         var commentElement = "";
         commentElement += "<div class=\"posts-comment posts-sub-block\">";
@@ -231,15 +213,17 @@ var postController = {
         commentElement += "</div>"
         return $(commentElement);
     },
+	// update the post to edit post element
     createEditPost: function (e) {
         e.preventDefault();
         var self = postController;
+        // get the post originals elements/values
         var postParent = $(this).parents('.posts');
         var postId = postParent.attr('data-postid');
         var postPrivacy = postParent.attr('data-privacy');
         var contentHolder = postParent.find('.posts-content-text');
         var currentContent = contentHolder.children('pre').html();
-
+	    // create new form and set the form with the originals elements/values
         var editForm = $("<form method='post' action='/posts/" + postId + "/edit'></form>");
         var textarea = $("<textarea></textarea>");
         var submit = $("<input/>");
@@ -268,23 +252,27 @@ var postController = {
         editForm.submit(self.editPost);
         console.log(currentContent);
     },
+	// send edit post request
     editPost: function (e) {
         e.preventDefault();
-        var self = postController;
         var postParent = $(this).parents('.posts');
-        var contentHolder = postParent.find('.posts-content-text');
-        var postId = postParent.attr('data-postid');
+        // the new content element holder
+	    var contentHolder = postParent.find('.posts-content-text');
+	    // send request by Ajax to posts route
         $.ajax({
             url: $(this).attr('action'),
             type: $(this).attr('method'),
             dataType: "JSON",
+	        // get the date from the form
             data: $(this).serialize(),
+	        // receive modal with success and response
             success: function (callback) {
                 if (callback.success) {
+                	// update the post with the new content
                     contentHolder.html('<pre>' + callback.response.content + '</pre>')
                     postParent.attr('data-privacy', callback.response.privacy)
                 } else {
-                    console.log('err')
+                    console.log(callback.errors)
                 }
             },
             error: function (callback) {
@@ -292,15 +280,18 @@ var postController = {
             }
         });
     },
+	// send delete post request
     deletePost: function (e) {
         e.preventDefault();
-        var self = postController;
         var postParent = $(this).parents('.posts');
         var postId = postParent.attr('data-postid');
+	    // send delete request by Ajax to posts route
         $.ajax({
             url: '/posts/'+postId,
             type: 'DELETE',
+	        // receive modal with success
             success: function (callback) {
+            	// remove the post from the posts container
                 if (callback.success)
                     postParent.fadeOut(400);
             },

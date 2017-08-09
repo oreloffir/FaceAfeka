@@ -147,7 +147,7 @@ router.post('/:id/add', function(req, res, next){
 })
 
 // add like
-router.get('/:id/like', function(req, res, next){
+router.post('/:id/like', function(req, res, next){
     var model = {errors: [] }
     storageManager.likePost(req.session.user, req.params.id, function(err, like){
         if(err){
