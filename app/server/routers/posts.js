@@ -149,6 +149,7 @@ router.post('/:id/add', function(req, res, next){
     var model = {errors: [] }
 
     validateCommentInput(req.body, function (errArray) {
+    	console.log("error: "+errArray)
         if(errArray){
             model.errors = errArray
             res.json(model)
@@ -177,7 +178,7 @@ router.post('/:id/add', function(req, res, next){
 /**
  * This route will handle like post request
  */
-router.get('/:id/like', function(req, res, next){
+router.post('/:id/like', function(req, res, next){
     var model = {errors: [] }
     storageManager.likePost(req.session.user, req.params.id, function(err, like){
         if(err){
@@ -204,6 +205,7 @@ var validatePostInput = function (post , callback) {
 
 var validateCommentInput = function (comment , callback) {
     var errArray = []
+	console.log("validateCommentInput "+comment.content.trim().length)
     if(comment.content.trim().length === 0)
         errArray.push(lang.err_comment_content_empty)
     if(errArray.length > 0)

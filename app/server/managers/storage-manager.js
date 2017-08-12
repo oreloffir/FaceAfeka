@@ -378,8 +378,6 @@ var storageManager = {
         userSchema.find(query)
             .populate('friends')
             .exec(function(err, users){
-            	console.log(users)
-	            mongoose
                 callback(err, users)
             })
     },
@@ -405,8 +403,8 @@ var storageManager = {
      * @param {String} searchValue - The start sub string to match for user display name
      * @param {requestCallback} callback - The callback that handles the response (err, users)
      **/
-	searchUsers: function (searchValue , callback) {
-    	var query = { displayName: { $regex: '^' + searchValue, $options: "i" } }
+	searchUsers: function (searchValue, callback) {
+        var query = { displayName: { $regex: '^' + searchValue, $options: "i" }}
         this.getUsers(query,callback)
 	},
     /**
@@ -449,15 +447,28 @@ var storageManager = {
      * @param {String} userId - the user id to get friends
      * @param {requestCallback} callback - The callback that handles the response (err, friends)
      */
-    getFriendsByUserId: function (userId, callback) {
-        var query = { _id: mongoose.Types.ObjectId(userId)}
-        userSchema.find(query, function (err, users) {
-            if(users)
-                callback(err, users[0].friends)
-            else
-                callback(err, null)
-        });
+    getFriendsIdsByUserId: function (userId, callback) {
+	    var query = { _id: mongoose.Types.ObjectId(userId)}
+	    userSchema.find(query, function (err, users){
+	        console.log("getFriendsIdsByUserId"+users)
+		    if(users)
+			    callback(err, users[0].friends)
+		    else
+			    callback(err, null)
+	    })
     },
+	getFriendsByUserId: function (userId, callback) {
+		var query = { _id: mongoose.Types.ObjectId(userId)}
+		userSchema.find(query)
+            .populate('friends')
+            .exec(function (err, users){
+	            console.log("getFriendsIdsByUserId"+users)
+	            if(users)
+		            callback(err, users[0].friends)
+	            else
+		            callback(err, null)
+            })
+	},
     /**
      * This method will callback all the images a specific user have uploaded
      * @see ImageSchema

@@ -61,7 +61,7 @@ router.get('/:id/gallery', function(req, res, next) {
         if (err || user === null) {
             res.redirect('/')
         } else {
-            storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
+            storageManager.getFriendsIdsByUserId(req.session.user.id.toString(), function (err, friends) {
                 storageManager.getImagesByUserId(user.id.toString(), {start: 0, limit: 40}, function (err, images) {
                     if (err) throw err
                     if (!friends) friends = []
@@ -89,7 +89,7 @@ router.get('/:id/:filter?', function(req, res, next){
         if(err || user === null){
             res.redirect('/')
         }else{
-            storageManager.getFriendsByUserId(req.session.user.id.toString(), function (err, friends) {
+            storageManager.getFriendsIdsByUserId(req.session.user.id.toString(), function (err, friends) {
                 // set default values
                 var action = 'getPostsByUser', filter = 'all'
                 if(req.params.filter) {

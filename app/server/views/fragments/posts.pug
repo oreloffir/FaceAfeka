@@ -32,7 +32,7 @@ if posts
                     span.posts-likes-count #{post.likes.length}
                     span  Likes
                 .posts-info-item.to-right
-                    span.posts-comments-btn #{post.comments.length} Comments
+                    span.posts-comments-btn(numOfComments=post.comments.length) #{post.comments.length} Comments
             .posts-func.posts-sub-block
                 - if (post.likes.indexOf(user.id) > -1)
                     .posts-func-like.like

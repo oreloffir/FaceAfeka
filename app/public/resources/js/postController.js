@@ -36,7 +36,6 @@ var postController = {
                 }
             });
         });
-
         // listening to click on func btn go to the appropriate function
         $(document).on('click', '.posts-func-like', this.likePost);
         $(document).on('click', '.load-more-comments', this.loadMoreComments);
@@ -105,10 +104,13 @@ var postController = {
         // get the date from the form
         var dataString = $(this).serialize();
         // the comments container
-        var outputBlock = $(this).parents('.posts').find('.posts-comments');
+	    var outputBlock = $(this).parents('.posts').find('.posts-comments');
+	    // the comments btn
+	    var commentBtn = $(this).parents('.posts').find('.posts-comments-btn');
 	    // find and clear the comment form textArea
         var contentArea = $(this).find("[name='content']");
         contentArea.val("");
+        var commentCounter = commentBtn.attr('numOfComments')
 	    // send the comment by Ajax to posts route
         $.ajax({
             url: $(this).attr("action"),
@@ -123,6 +125,9 @@ var postController = {
                     // prepand the new comment element to the comments container
                     var commentElement = self.createCommentElement(callback.response);
                     commentElement.prependTo(outputBlock).hide().fadeIn(700);
+	                commentCounter++;
+	                commentBtn.attr('numOfComments', commentCounter);
+	                commentBtn.text(commentCounter+' Comments');
                 }
             },
             error: function (callback) {
@@ -250,7 +255,7 @@ var postController = {
 
         contentHolder.html(editForm);
         editForm.submit(self.editPost);
-        console.log(currentContent);
+
     },
 	// send edit post request
     editPost: function (e) {
