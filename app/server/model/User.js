@@ -25,8 +25,8 @@ var UserSchema = new mongoose.Schema({
   		default: Date.now 
   	},
   	friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  	hash: String,
-  	salt: String
+  	hash: {type: String, select: false},
+  	salt: {type: String, select: false}
 })
 UserSchema.methods.setPassword = function(password){
 	this.salt = crypto.randomBytes(16).toString('hex')

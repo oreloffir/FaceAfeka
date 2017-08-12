@@ -89,9 +89,11 @@ pre{
     border: 1px solid #dddddd;
     border-radius: 5px;
     padding: 10px !important;
+    width: 196px;
 }
 #searchList li a{
     padding: 0px !important;
+    margin-bottom: 6px;
 }
 #searchList li img{
     padding-right: 5px !important;

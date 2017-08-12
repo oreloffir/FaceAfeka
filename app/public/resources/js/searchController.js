@@ -1,54 +1,71 @@
+/*
+Search controller,
+responsible for the search component in the header.
+listening to keyUp in search input,
+send the input string by Ajax to search route,
+receive list of users that the display name start with the input,
+create drop-sown list with the result
+ */
 var searchController = {
 	init: function () {
 		this.searchInput 	= $('#searchHeader');
 		this.searchList 	= $('#searchList');
+		//The search input component
+		this.searchInput    = $('#searchHeader');
+		//The search drop-down list component
+		this.searchList     = $('#searchList');
+		this.No_Results     = 'No results';
 
 		this.bindEvent();
 	},
 	bindEvent: function () {
 		var self = searchController;
-		$(document).one('click', '#searchHeader', function() {
-			self.searchList.hide()
-			$(this).on('keyup' , self.keypress);
-		});
+		// listening to keyUp in search input
+		self.searchInput.on('keyup' , self.keypress);
 	},
 	keypress: function (e) {
 		var self = searchController;
 		var input = self.searchInput.val();
+		// validate the search input
 		if(self.validateInput(input)){
-			console.log(input)
+			// go to search function that send req to the server
 			self.search(input)
 		}
-		self.searchList.html('')
 	},
 	search: function (input) {
 		var self = searchController;
+		// send the input string by Ajax to search route
 		$.ajax({
 			url: '/search/profile/'+input,
 			type: 'GET',
 			dataType: "JSON",
+			// receive list of users that the display name start with the input
 			success: function(callback){
-				console.log(callback);
 				var imgElement;
-
-				$.each(callback.res, function (idx, user) {
-					imgElement = "<img class='img img-circle img-profile-search' src='/images/profile/tmb_"+user.imagePath+"'>";
-					self.searchList.append('<li><a href="/profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
-				})
-
+				// clean the search drop-down list before the search function edit the list
+				self.searchList.html('<li></li>')
+				if(callback.res.length === 0)
+					self.searchList.append('<li>'+this.No_Results+'</li>')
+				// create drop-sown list with the result
+				else{
+					$.each(callback.res, function (idx, user) {
+						imgElement = "<img class='img img-circle img-profile-search' src='/images/profile/tmb_"+user.imagePath+"'>";
+						self.searchList.append('<li><a href="/profile/'+user._id+'">'+imgElement+user.displayName+'</a></li>')
+					})
+				}
 			},
 			error: function (callback) {
 				console.log(callback);
 			}
 		});
 	},
+	// validate the input string
 	validateInput: function (input) {
 		var self = searchController;
 		var string =input.trim();
 		if(string.length > 0 ){
 			self.searchList.show()
 			return true;
-
 		}
 		self.searchList.hide()
 		return false;

@@ -32,7 +32,7 @@ if posts
                     span.posts-likes-count #{post.likes.length}
                     span  Likes
                 .posts-info-item.to-right
-                    span.posts-comments-btn #{post.comments.length} Comments
+                    span.posts-comments-btn(numOfComments=post.comments.length) #{post.comments.length} Comments
             .posts-func.posts-sub-block
                 - if (post.likes.indexOf(user.id) > -1)
                     .posts-func-like.like
@@ -53,8 +53,8 @@ if posts
                 .posts-comments-more.posts-sub-block
                     a.load-more-comments(href='', data-pagenum='0')
                         span ···
-                        span.posts-comments-load-more-left #{post.comments.length - 3}
-                        span  more ··
+                        span.posts-comments-load-more-remain #{post.comments.length - 3}
+                        span  more ···
             .posts-add-comment.posts-sub-block
                 form(method='post', action='/posts/'+post.id+'/add', class='add-comment-form')
                     textarea.form-control(name='content', placeholder='Leave a comment')
