@@ -1,7 +1,7 @@
 var searchController = {
 	init: function () {
-		this.searchInput = $('#searchHeader');
-		this.searchList = $('#searchList');
+		this.searchInput 	= $('#searchHeader');
+		this.searchList 	= $('#searchList');
 
 		this.bindEvent();
 	},
