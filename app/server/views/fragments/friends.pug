@@ -1,0 +1,7 @@
+.profile-left-subtitle #{profile.friends.length} Friends
+.profile-left-friends
+    if profile.friends
+        each friend in profile.friends
+            .profile-left-friend
+                img.img.img-responsive.img-circle(src='/images/profile/tmb_'+friend.imagePath)
+                a(href='/profile/'+friend.id) #{friend.displayName} <br>

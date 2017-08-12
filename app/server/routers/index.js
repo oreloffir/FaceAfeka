@@ -104,36 +104,44 @@ router.post('/*', isAuth, function(req, res, next){
  * Home page
  */
 router.get('/', function(req, res, next){
-	// get the user friends to display their posts
-	storageManager.getFriendsIdsByUserId(req.session.user.id.toString(), function (err, friends) {
-		if(err) throw err
-		if(!friends) friends = []
-		// add user id to dislpay his posts also
-		friends.push(req.session.user.id)
-		storageManager.getPosts(
-			// the query
-			{
-				$or:[{
-					$and:[
-						{userId: {$in: friends}},
-						{privacy: false}
-					]},
-					{userId: req.session.user.id}]
-			},
-			// show 20 results @todo: define const
-			{start:0, limit:20},
-			// callback function
-			function (err, posts) {
-				var model = {
-					user: req.session.user,
-					title: lang.title_main,
-					friends: friends,
-					posts: posts,
-					showAddPost: true
-				}
-				res.render('index', model)
-			}
-		)
+	storageManager.getUserById(req.session.user.id, function(err, user) {
+		if (err || user === null) {
+			res.redirect('/')
+		} else {
+			// get the user friends to display their posts
+			storageManager.getFriendsIdsByUserId(req.session.user.id.toString(), function (err, friends) {
+				if (err) throw err
+				if (!friends) friends = []
+				// add user id to dislpay his posts also
+				friends.push(req.session.user.id)
+				storageManager.getPosts(
+					// the query
+					{
+						$or: [{
+							$and: [
+								{userId: {$in: friends}},
+								{privacy: false}
+							]
+						},
+							{userId: req.session.user.id}]
+					},
+					// show 20 results @todo: define const
+					{start: 0, limit: 20},
+					// callback function
+					function (err, posts) {
+						var model = {
+							user: req.session.user,
+							title: lang.title_main,
+							profile: user,
+							friends: friends,
+							posts: posts,
+							showAddPost: true
+						}
+						res.render('index', model)
+					}
+				)
+			})
+		}
 	})
 })
 

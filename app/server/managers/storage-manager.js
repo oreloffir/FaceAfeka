@@ -457,6 +457,13 @@ var storageManager = {
 			    callback(err, null)
 	    })
     },
+	/**
+	 * This method will callback all the friends of a user
+     * different from @see getFriendsIdsByUserId this function do populate('friend') to the result
+	 * @callback requestCallback
+	 * @param {String} userId - the user id to get friends
+	 * @param {requestCallback} callback - The callback that handles the response (err, friends)
+	 */
 	getFriendsByUserId: function (userId, callback) {
 		var query = { _id: mongoose.Types.ObjectId(userId)}
 		userSchema.find(query)

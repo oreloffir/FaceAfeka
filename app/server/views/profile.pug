@@ -19,6 +19,7 @@ html
                 .col-md-3.col-sm-3
                     .affix
                         include fragments/profileLeft.pug
+                        include fragments/friends.pug
                 .col-md-6.col-sm-6
                     include fragments/addPost.pug
                     .posts-filters
@@ -36,6 +37,7 @@ html
 
                 .col-md-3.col-sm-3
                     include fragments/profileRight.pug
+
         include fragments/imageModal.pug
         script.
             postController.init();

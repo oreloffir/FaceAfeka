@@ -269,6 +269,7 @@ pre{
     margin-top:15px;
     color: #666666;
     font-size: 15px;
+    text-decoration: underline;
 }
 .profile-left-subtitle span{
     float: left;
