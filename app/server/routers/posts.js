@@ -86,6 +86,7 @@ router.delete('/:id', function(req, res, next){
  * This route return a single view of a specific post (html only)
  */
 router.get('/:id/ajax', function(req, res, next){
+    console.log(req.params.id)
     storageManager.getPostById(req.params.id, function(err, post){
         console.log(post)
         var model = {

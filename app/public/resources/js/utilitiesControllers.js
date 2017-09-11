@@ -32,10 +32,6 @@ show the image modal / update the modal
  */
 var imageDialog = {
     init: function () {
-        this.imageModal         = $('#imageModal');
-        this.imageModalBody     = $('#imageModalBody');
-        // open modal btns
-        this.imageModalBtns     = $('.img-dialog-btn');
         // the modal image
         this.imageModalImg      = $('#imageModalImg');
         // the modal right side
@@ -54,17 +50,15 @@ var imageDialog = {
     },
     bindEvent: function () {
         var self = imageDialog;
-	    // listening to click on img to open modal
-        this.imageModalBtns.each(function(index, imageBtn){
-            $(imageBtn).on('click', self.updateModal)
-        })
+	    // listening to click on img to open modal // open modal btns
+        $(document).on('click', '.img-dialog-btn', this.updateModal);
 	    // listening to click on right/left btns to change img
         this.nextImageBtn.on('click', function () {
             self.crusela('next');
-        })
+        });
         this.prevImageBtn.on('click', function () {
             self.crusela('prev');
-        })
+        });
     },
 	// change the img modal according to click on next/prevImageBtn
     crusela: function (action) {
@@ -103,7 +97,6 @@ var imageDialog = {
         self.imagesNav.html("");
         // the post container
         var postParent = $(this).parents('.posts');
-	    // gallery doesn't have post container, need to get the post from img attribute 'data-postid'.
         if(postParent.length === 0) {
             var postId = $(this).attr('data-postid');
             // send the postId by Ajax to posts route

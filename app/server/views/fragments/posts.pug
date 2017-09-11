@@ -17,9 +17,10 @@ if posts
                     pre(class=(post.content.length  < 50 ? 'big-content' : '')) #{post.content}
                 .posts-content-external.posts-sub-block
                     if post.images.length > 0
-                        each image in post.images
-                            .col-md-6.col-sm-6.col-xs-6.posts-image-thumbnail
-                                img.img-dialog-btn.img.img-responsive.img-thumbnail(src='/images/post/'+image.imagePath, data-toggle="modal", data-target="#imageModal")
+                        .display-flex.row-eq-height
+                            each image in post.images
+                                .col-md-6.col-sm-6.col-xs-6.posts-image-thumbnail
+                                    img.img-dialog-btn.img.img-responsive.img-thumbnail(src='/images/post/'+image.imagePath, data-toggle="modal", data-target="#imageModal")
                     if post.extContent
                         case post.extContent.type
                             when "youtube"
