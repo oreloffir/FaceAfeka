@@ -451,7 +451,7 @@ var storageManager = {
 	    var query = { _id: mongoose.Types.ObjectId(userId)}
 	    userSchema.find(query, function (err, users){
 	        console.log("getFriendsIdsByUserId"+users)
-		    if(users)
+		    if(users[0])
 			    callback(err, users[0].friends)
 		    else
 			    callback(err, null)

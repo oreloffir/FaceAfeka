@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01506887-f99d-43e2-a9f7-27220c3ee607" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-in/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-in/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-in/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-in/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-own/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-own/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-own/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/for-own/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/component.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isarray/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/libraries/string_js_node_modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/string.js.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.min-wd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/dist/string.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/dist/string.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/lib/_count.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/lib/_splitLeft.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/lib/_splitRight.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/lib/string.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/string/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/tests/spec/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/tests/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/tests/run.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/tests/spec/test.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/faceAfeka.iml" afterPath="$PROJECT_DIR$/.idea/faceAfeka.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/managers/storage-manager.js" afterPath="$PROJECT_DIR$/app/server/managers/storage-manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/app/config/googleSearch-configuration.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/app/config/googleSearch-configuration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/app/config/watson-configuration.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/app/config/watson-configuration.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.coveralls.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.coveralls.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.eslintrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.eslintrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.npmignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/CHANGELOG.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/Makefile" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/component.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/component.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/karma.conf.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/karma.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/node.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/node.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/browser.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/browser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/debug.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/debug.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/node.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/debug/src/node.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/lib/has-symbol-support-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-symbol-support-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/lib/has-to-string-tag-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/has-to-string-tag-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/lib/is-array-buffer-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-array-buffer-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-extendable/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/lib/is-function-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-function-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/lib/is-object-like-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/is-object-like-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/isobject/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/CHANGELOG.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/LICENSE.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/LICENSE.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/asyncworker.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/asyncworker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/buffers.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/buffers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/callback.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/callback.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/converters.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/converters.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/errors.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/errors.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/json.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/json.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/maybe_types.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/maybe_types.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/methods.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/methods.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/new.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/new.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/node_misc.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/node_misc.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/object_wrappers.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/object_wrappers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/persistent.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/persistent.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/scopes.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/scopes.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/script.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/script.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/string_bytes.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/string_bytes.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/v8_internals.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/v8_internals.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/v8_misc.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/doc/v8_misc.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/include_dirs.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/include_dirs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks_pre_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_callbacks_pre_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters_43_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters_43_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters_pre_43_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_converters_pre_43_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_implementation_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_implementation_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_implementation_pre_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_implementation_pre_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_json.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_json.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_maybe_43_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_maybe_43_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_maybe_pre_43_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_maybe_pre_43_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_new.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_new.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_object_wrap.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_object_wrap.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_persistent_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_persistent_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_persistent_pre_12_inl.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_persistent_pre_12_inl.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_private.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_private.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_string_bytes.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_string_bytes.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_typedarray_contents.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_typedarray_contents.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_weak.h" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/nan_weak.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/1to2.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/1to2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/nan/tools/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/lib/normalize-space-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/normalize-space-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.omit/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/object.pick/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/lib/replace-comments-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/replace-comments-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/lib/to-string-tag-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-tag-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.editorconfig" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.editorconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/lib/to-string-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/to-string-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/lib/trim-left-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-left-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/lib/trim-right-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-right-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.min.js.map" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/lib/trim-x.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/trim-x/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.gitattributes" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.gitattributes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.github/issue_template.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.github/issue_template.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.github/pull_request_template.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.github/pull_request_template.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.npmignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/.npmignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/CHANGELOG.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/conversation/v1.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/conversation/v1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/discovery/v1.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/discovery/v1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/language-translator/v2.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/language-translator/v2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/lib/alchemy_endpoints.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/lib/alchemy_endpoints.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/lib/requestwrapper.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/lib/requestwrapper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/package-lock.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/watson-developer-cloud/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.eslintignore" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.eslintignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.eslintrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.eslintrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.nvmrc" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.nvmrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.travis.yml" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.uglifyjsrc.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/.uglifyjsrc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/LICENSE" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/README.md" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/badges.html" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/badges.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/index.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/lib/white-space-x.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/lib/white-space-x.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/lib/white-space-x.min.js" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/lib/white-space-x.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/package.json" afterPath="$PROJECT_DIR$/../faceAfekaBot/node_modules/white-space-x/package.json" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="watson-configuration.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../faceAfekaBot/app/config/watson-configuration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../faceAfekaBot" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/server/managers/storage-manager.js" />
+        <option value="$PROJECT_DIR$/../faceAfekaBot/app/config/googleSearch-configuration.js" />
+        <option value="$PROJECT_DIR$/../faceAfekaBot/app/config/watson-configuration.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1400" />
+    <option name="height" value="990" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfeka" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfeka" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfeka" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="server" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfeka" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="server" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="managers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfeka" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="server" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="routers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfekaBot" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfekaBot" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="faceAfeka" type="b2602c69:ProjectViewProjectNode" />
+              <item name="faceAfekaBot" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../faceAfekaBot" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01506887-f99d-43e2-a9f7-27220c3ee607" name="Default" comment="" />
+      <created>1507994160770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1507994160770</updated>
+      <workItem from="1507994164869" duration="1013000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1013000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1058" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server/routers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1650">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server/routers/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../faceAfekaBot/app/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/server/managers/storage-manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="453" column="24" lean-forward="false" selection-start-line="453" selection-start-column="24" selection-end-line="453" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../faceAfekaBot/app/config/twitter-configuration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../faceAfekaBot/app/config/googleSearch-configuration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../faceAfekaBot/app/config/watson-configuration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
