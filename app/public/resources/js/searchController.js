@@ -14,7 +14,7 @@ var searchController = {
 		this.searchInput    = $('#searchHeader');
 		//The search drop-down list component
 		this.searchList     = $('#searchList');
-		this.No_Results     = 'No results';
+		this.NO_RESULTS     = 'No results';
 
 		this.bindEvent();
 	},
@@ -45,7 +45,7 @@ var searchController = {
 				// clean the search drop-down list before the search function edit the list
 				self.searchList.html('<li></li>')
 				if(callback.res.length === 0)
-					self.searchList.append('<li>'+this.No_Results+'</li>')
+					self.searchList.append('<li>'+self.NO_RESULTS+'</li>')
 				// create drop-sown list with the result
 				else{
 					$.each(callback.res, function (idx, user) {

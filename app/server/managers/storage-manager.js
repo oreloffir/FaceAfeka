@@ -307,6 +307,8 @@ var storageManager = {
      */
 	deletePost: function(user, postId, callback){
         postSchema.findOne({ _id: mongoose.Types.ObjectId(postId), userId: user.id }, function (err, post) {
+            if(!post || err)
+                return;
             commentSchema.remove({_id: {$in: post.comments}}, function (err) {
                 if(post.extContent){
                     extContentSchema.remove({_id: post.extContent}, function () {

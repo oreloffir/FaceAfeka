@@ -7,7 +7,8 @@ if posts
                 .col-md-10.col-sm-10.col-xs-10.posts-user
                     .posts-user-link
                         a(href='/profile/'+post.userId.id) #{post.userId.displayName}
-                        a.posts-delete-btn.to-right(href='') &times;
+                        if post.userId.id === user.id
+                            a.posts-delete-btn.to-right(href='') &times;
                     .posts-date
                         a(href='/posts/'+post.id) #{post.timeago(post.date)}
                         if post.userId.id === user.id

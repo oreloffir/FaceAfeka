@@ -21,7 +21,8 @@ html
                         include fragments/profileLeft.pug
                         include fragments/friends.pug
                 .col-md-6.col-sm-6
-                    include fragments/addPost.pug
+                    if profile.id === user.id
+                        include fragments/addPost.pug
                     .posts-filters
                         ul.nav.nav-tabs
                             li(role='presentation', class=( postsFilter === 'all' ? 'active' : ''))
