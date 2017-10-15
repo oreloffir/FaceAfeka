@@ -1,4 +1,4 @@
-/node_modules
+node_modules/
 app/public/images/
 # User-specific stuff:
 .idea/**/workspace.xml

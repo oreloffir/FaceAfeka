@@ -2887,11 +2887,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/yaeti/lib/Event.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/yaeti/lib/EventTarget.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../faceAfekaBot/node_modules/yaeti/package.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/resources/js/searchController.js" afterPath="$PROJECT_DIR$/app/public/resources/js/searchController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/managers/storage-manager.js" afterPath="$PROJECT_DIR$/app/server/managers/storage-manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/views/fragments/posts.pug" afterPath="$PROJECT_DIR$/app/server/views/fragments/posts.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server/views/profile.pug" afterPath="$PROJECT_DIR$/app/server/views/profile.pug" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -2905,11 +2900,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="profile.pug" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.pug" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/server/views/profile.pug">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="325">
               <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -3078,12 +3083,12 @@
       <option name="presentableId" value="Default" />
       <updated>1507994160770</updated>
       <workItem from="1507994164869" duration="1013000" />
-      <workItem from="1508055800310" duration="1756000" />
+      <workItem from="1508055800310" duration="2017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2769000" />
+    <option name="totallyTimeSpent" value="3030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1058" extended-state="6" />
@@ -3198,18 +3203,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/server/views/profile.pug">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

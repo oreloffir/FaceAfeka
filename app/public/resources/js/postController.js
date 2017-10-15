@@ -75,6 +75,7 @@ var postController = {
                     $.get("/posts/"+callback.response.id+"/ajax", function( data ) {
                         $(data).prependTo(self.postsContainer).hide().fadeIn(700);
                     });
+                    $("#newPostContentInput").val("");
                 }
             },
             error: function (callback) {

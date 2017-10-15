@@ -12,7 +12,7 @@ var postsPerPage        = 10;
 // Regex and tokens for post ExternalContent
 var youTubeRegex        = /.*.youtube.com.*v=([^\&]{11}).*/
 var YOUTUBE_CONTENT     = "youtube"
-var imageRegex          = /(https?:\/\/.*\.(?:jpg|JPG|jpeg|png|gif))/i
+var imageRegex          = /(https?:\/\/[a-zA-Z0-9-_\.\/]*\.(?:jpg|JPG|jpeg|png|gif))$/i
 var IMAGE_CONTENT       = "image"
 /*  Array of regex and tokens for post ExternalContent,
     See storageManager.getExtContent
